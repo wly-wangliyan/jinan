@@ -1,0 +1,9 @@
+<div class="right-one-container">
+  <div class="title">
+    <span>车场对比</span>
+  </div>
+  <div class="center-img"></div>
+  <div class="content" (mouseenter)="pauseLoopScroll()" (mouseleave)="loopScroll()">
+    <div class="chart" echarts [options]='option' (chartInit)="onChartInit($event)"></div>
+  </div>
+</div>

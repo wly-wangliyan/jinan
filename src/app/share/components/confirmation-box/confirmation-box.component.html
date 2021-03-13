@@ -1,0 +1,17 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <span>{{title}}</span>
+      <img src="assets/images/close.png" (click)="closed.next()">
+    </div>
+    <div class="modal-body">
+      <!--      <img src="/assets/images/success.png">-->
+      <div>{{message}}</div>
+    </div>
+    <div class="modal-footer">
+      <button nz-button nzType="primary" type="submit" class="ant-btn ant-btn-primary" (click)="onSure()">{{sureButton}}
+      </button>
+      <button nz-button nzType="default" class="cancel-ant-btn" (click)="closed.next()">取消</button>
+    </div>
+  </div>
+</div>

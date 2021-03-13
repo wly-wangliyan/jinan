@@ -1,0 +1,14 @@
+<div id="map-container" style="width: 1920px; height: 1080px"></div>
+<app-left-one style="position: absolute; top: 122px; left: 12px"></app-left-one>
+<app-left-two style="position: absolute; top: 434px; left: 12px" [totalInfo]='totalData'></app-left-two>
+<app-left-three style="position: absolute; top: 697px; left: 12px"></app-left-three>
+<app-right-one style="position: absolute; top: 120px;left: 1452px;"></app-right-one>
+<app-right-two style="position: absolute; top: 590px;left: 1452px;"></app-right-two>
+<app-bottom-panel style="position: absolute; top: 932px; left: 588px" [title]="'总停车场数'"
+  [count]="parkingCountEntity.total_number"></app-bottom-panel>
+<app-bottom-panel style="position: absolute; top: 932px; left: 836px" [title]="'路内停车场数'"
+  [count]="parkingCountEntity.inside_number"></app-bottom-panel>
+<app-bottom-panel style="position: absolute; top: 932px; left: 1084px" [title]="'路外停车场数'"
+  [count]="parkingCountEntity.outside_number"></app-bottom-panel>
+<app-map-modal style="position: absolute;top:178px;left:1159px" [district]='currentDistrict' [totalInfo]='totalData'>
+</app-map-modal>

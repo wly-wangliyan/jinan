@@ -1,0 +1,39 @@
+<div class="main-layout">
+  <div class="main-header-layout">
+    <div class="header-left-layout">
+      <img src="assets/images/user/user_logo.png">
+      <span>用户管理</span>
+    </div>
+    <div class="header-right-layout">
+      <img src="assets/images/user/user_icon.png">
+      <div class="welcome" (click)="onChangePwd()">欢迎您，{{userName}}</div>
+      <button class="button-group" (click)="operationStatus = !operationStatus"
+              [class]="{'button-active':operationStatus}" #buttonGroup></button>
+      <button class="return" routerLink="/guide">返回首页</button>
+    </div>
+  </div>
+  <div class="main-left-layout">
+    <app-expanded-menu></app-expanded-menu>
+  </div>
+  <div class="main-right-layout">
+    <div class="content-router-outlet" #routerDiv>
+      <router-outlet></router-outlet>
+    </div>
+    <!--无权限403-->
+        <app-http-403-page (displayStateChanged)="displayStateChanged()"></app-http-403-page>
+
+    <!--服务器500-->
+        <app-http-500-page (displayStateChanged)="displayStateChanged()"></app-http-500-page>
+  </div>
+  <div class="user-operation" *ngIf="operationStatus">
+    <div (click)="onChangePwd()">
+      <img src="/assets/images/guide/update_password.png">
+      <span>修改密码</span>
+    </div>
+    <div (click)="logout()">
+      <img src="/assets/images/guide/logout.png">
+      <span>退出系统</span>
+    </div>
+  </div>
+</div>
+<!--<app-form-box></app-form-box>-->

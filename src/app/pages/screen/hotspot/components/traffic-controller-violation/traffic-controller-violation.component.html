@@ -1,0 +1,26 @@
+<div id="traffic-controller-container">
+  <div class="header">
+    运管员违规
+  </div>
+  <div class="table-content">
+    <div class="table-header">
+      <div>运管员名称</div>
+      <div>所属道路</div>
+      <div>违规类型</div>
+    </div>
+    <div class="scroll-box" #scrollDiv (mouseenter)="onScrollDivMouseEnter()" (mouseleave)="onScrollDivMouseLeave()">
+      <div class="scroll-box-item" *ngFor="let dataItem of dataList"
+           [ngStyle]="{'background-color': dataItem.isOdd ? 'rgba(141, 184, 255, 0)':'rgba(141, 184, 255, 0.1)'}">
+        <div class="scroll-box-title">
+          {{dataItem.source.trafficControllerName}}
+        </div>
+        <div class="ellipsis" [title]="dataItem.source.road_name">
+          {{dataItem.source.belongRoad}}
+        </div>
+        <div>
+          {{dataItem.source.violationType}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

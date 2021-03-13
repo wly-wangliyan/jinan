@@ -1,0 +1,24 @@
+<ul class="main-container">
+  <li>
+    <div class="icon icon1"></div>
+    <div class="content">
+      <div>社区在线预警</div>
+      <div class="count">
+        <app-magic-number [sHeight]="50" [sNumberWidth]="16" [sMaxLength]='5' [sFontSize]="28"
+                          [sNumber]="onlineEarlyWarning+''">
+        </app-magic-number>
+      </div>
+    </div>
+  </li>
+  <li>
+    <div class="icon icon2"></div>
+    <div class="content">
+      <div>重点车辆预警</div>
+      <div class="count">
+        <app-magic-number [sHeight]="50" [sNumberWidth]="16" [sMaxLength]='5' [sFontSize]="28"
+                          [sNumber]="carEarlyWarning+''">
+        </app-magic-number>
+      </div>
+    </div>
+  </li>
+</ul>

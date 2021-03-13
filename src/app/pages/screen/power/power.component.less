@@ -1,0 +1,139 @@
+.inside-map-container {
+  width: 1920px;
+  height: 1080px;
+  position: absolute;
+  //background: #06354a;
+  background: #020e39;
+}
+
+// 信息窗体
+.amap-content-window {
+  background: #fff;
+  border: 1px solid red;
+}
+
+.left-side {
+  position: absolute;
+  top: 80px;
+  padding: 35px 0 0 12px;
+  background: url("/assets/power-images/left.png") no-repeat 0 14px;
+
+  -webkit-transition: all 2s;
+  transition: all 2s;
+  height: 975px;
+  left: 12px;
+}
+
+.right-side {
+  position: absolute;
+  z-index: 2;
+  top: 80px;
+  left: 1440px;
+  padding: 35px 12px 0 0;
+}
+
+.inside-item {
+  margin-bottom: 18px;
+}
+
+.inside-item-range {
+  width: 224px;
+  height: 90px;
+  border: 1px solid #1995de;
+  text-align: center;
+  font-size: 24px;
+  //font-family: Source Han Sans SC;
+  font-weight: normal;
+  color: #32ffb4;
+  line-height: 90px;
+  background: linear-gradient(0deg,
+  rgba(0, 43, 101, 0.6) 0%,
+  rgba(4, 15, 43, 0.6) 100%);
+  cursor: pointer;
+
+  img {
+    margin-left: 10px;
+    margin-top: -5px;
+  }
+
+  &:first-child {
+    margin-right: 8px;
+  }
+}
+
+.inside-item-time {
+  width: 224px;
+  height: 64px;
+  border: 1px solid #1995de;
+  background: linear-gradient(0deg,
+  rgba(0, 43, 101, 0.6) 0%,
+  rgba(4, 15, 43, 0.6) 100%);
+  text-align: center;
+  line-height: 64px;
+  font-size: 18px;
+  font-weight: normal;
+  color: #bfe8ff;
+  display: flex;
+  justify-content: center;
+  font-family: electronicFont;
+  margin-right: 10px;
+
+  & > app-magic-number {
+    color: #FFFFFF;
+  }
+}
+
+.common-head {
+  height: 40px;
+  font-size: 22px;
+  //font-family: Source Han Sans SC;
+  font-weight: bold;
+  color: #bfe8ff;
+  padding: 0 10px;
+  line-height: 40px;
+}
+
+.marker-type-container {
+  position: absolute;
+  top: 158px;
+  left: 942px;
+  display: flex;
+  align-items: center;
+
+  select {
+    width: 116px;
+    height: 40px;
+    background: #01204d;
+    border: 1px solid #1995de;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+
+  .search-btn {
+    width: 70px;
+    height: 40px;
+    background: #01204d;
+    border: 1px solid #1995de;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    font-size: 18px;
+    //font-family: Source Han Sans SC;
+    font-weight: bold;
+    color: #32ffb4;
+  }
+}
+
+.inside-amap-content-window {
+  width: 100% !important;
+  text-align: left !important;
+}
+
+.amap-content-window-row {
+  line-height: 18px;
+  height: 18px;
+}
+
+.ant-select {
+  margin-right: 10px;
+}

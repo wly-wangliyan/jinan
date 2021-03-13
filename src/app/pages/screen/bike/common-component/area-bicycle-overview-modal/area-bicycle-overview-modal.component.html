@@ -1,0 +1,20 @@
+<section class="modal-wrap" #areaBicycleOverviewModal>
+  <div class="modal-header-common">
+    <div class="header-title">{{regionLabelName|zMaxLength:6}}共享单车概况</div>
+    <div class="header-icon" (click)="onBackClick()"></div>
+  </div>
+  <div class="modal-body-common">
+    <div class="modal-title">
+      <tr>
+        <td>{{regionLabelName|zMaxLength:6}}名称</td>
+        <td>单车数量</td>
+      </tr>
+    </div>
+    <div class="modal-content-common">
+      <tr *ngFor="let area of arealist">
+        <td>{{area.region_name|zMaxLength:12}} </td>
+        <td>{{area.count}}</td>
+      </tr>
+    </div>
+  </div>
+</section>

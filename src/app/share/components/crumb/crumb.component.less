@@ -1,0 +1,48 @@
+.breadcrumb-container {
+  float: left;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  //font-family: MicrosoftYaHei-Bold;
+  font-weight: bold;
+  color: #333333;
+  //margin-top: 30px;
+  margin-left: 12px;
+}
+
+.breadcrumb {
+  display: flex;
+}
+
+.breadcrumb img {
+  width: 20px;
+  height: 17px;
+  margin: 17px 9px 0 0;
+}
+
+.breadcrumb li {
+  list-style: none;
+}
+
+.breadcrumb > li, .breadcrumb > li > a {
+  color: rgba(45, 45, 53, 1);
+}
+
+.breadcrumb > li + li:before {
+  content: ">";
+  padding: 0 0 0 5px;
+  color: rgba(45, 45, 53, 1);
+}
+
+.breadcrumb a:hover {
+  cursor: pointer;
+  color: #099E5B;
+}
+
+.breadcrumb li:last-child > a:hover {
+  cursor: default;
+}
+
+.pointer {
+  cursor: pointer;
+}

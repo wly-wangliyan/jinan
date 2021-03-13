@@ -1,0 +1,8 @@
+<div class="summary-container">
+  <div class="header">
+    各区道路类型汇总信息
+  </div>
+  <div class="summary-content" echarts [options]="chartOptions" (chartInit)="onChartInit($event)"
+       (mouseenter)="onChartMouseEnter()" (mouseleave)="onChartMouseLeave()">
+  </div>
+</div>

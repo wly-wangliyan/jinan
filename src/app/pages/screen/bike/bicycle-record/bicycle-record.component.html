@@ -1,0 +1,23 @@
+<section #bicycleRecordRef>
+    <div class="common-head">单车备案情况</div>
+    <div class="shareBike_l_t_body">
+        <div class="fs-table-container">
+            <table>
+                <tbody>
+                    <tr class="tr-thead">
+                        <td>企业</td>
+                        <td>已投放</td>
+                        <td>违停</td>
+                        <td>僵尸车</td>
+                    </tr>
+                    <tr *ngFor="let data of dataList" class="tr-td">
+                        <td>{{data.company_type|fullCompanyType}}</td>
+                        <td>{{data.put_in_count||0}}</td>
+                        <td>{{data.not_beian_count||0}}</td>
+                        <td>{{data.zombied_count||0}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,40 @@
+<div class="header-container">
+  <div class="header-bar">
+    <div class="btn-group">
+      <div class="left-btn" (click)="onNavigationClick('screen/inside',$event)"
+           [class]="{'left-active':isActivePath ==='inside'}">
+        路内资源
+      </div>
+      <div class="left-btn"
+           (click)="onNavigationClick('screen/outside',$event)"
+           [class]="{'left-active':isActivePath ==='outside'}">
+        路外资源
+      </div>
+      <div class="left-btn" style="margin-right: 40px;"
+           (click)="onNavigationClick('screen/power',$event)"
+           [class]="{'left-active':isActivePath ==='power'}">
+        新能源
+      </div>
+    </div>
+    <div class="title" (click)="onNavigationClick('screen/home',$event)">
+    </div>
+    <div class="btn-group">
+      <div class="right-btn" (click)="onNavigationClick('screen/bike',$event)"
+           [class]="{'right-active':isActivePath ==='bike'}">共享单车
+      </div>
+      <div class="right-btn" (click)="onNavigationClick('screen/security',$event)"
+           [class]="{'right-active':isActivePath ==='security'}">智安联控
+      </div>
+      <div class="right-btn" (click)="onNavigationClick('screen/hotspot',$event)"
+           [class]="{'right-active':isActivePath ==='hotspot'}">热点巡查
+      </div>
+    </div>
+  </div>
+  <div class="weather-bar">
+    <div class="time-content">
+      <span class="date" #date>0000年0月0日</span>
+      <span class="time" #time>00:00:00</span>
+      <span class="week" #week>星期一</span>
+    </div>
+  </div>
+</div>

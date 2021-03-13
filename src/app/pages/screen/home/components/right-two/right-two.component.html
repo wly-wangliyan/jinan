@@ -1,0 +1,22 @@
+<div class="right-two-container">
+  <div class="table-header">
+    <span class="title">热点区域出行热度</span>
+    <div><span>行政区</span></div>
+    <div><span>出行热度区域</span></div>
+    <div><span>出行热度</span></div>
+  </div>
+  <div class="scroll-box" #scrollDiv (mouseenter)="onScrollDivMouseEnter()" (mouseleave)="onScrollDivMouseLeave()">
+    <div class="scroll-box-item" *ngFor="let dataItem of dataList"
+      [ngStyle]="{'background-color': dataItem.isOdd ? 'rgba(141, 184, 255, 0)':'rgba(141, 184, 255, 0.1)'}">
+      <div class="scroll-box-title">
+        {{dataItem.source.district}}
+      </div>
+      <div class="ellipsis" [title]="dataItem.source.hot_spot_name">
+        {{dataItem.source.hot_spot_name}}
+      </div>
+      <div *ngIf="dataItem.source.hot_rate==1">畅通</div>
+      <div *ngIf="dataItem.source.hot_rate==2" style="color:rgba(247, 181, 0, 1)">拥挤</div>
+      <div *ngIf="dataItem.source.hot_rate==3" style="color:rgba(255, 111, 111, 1)">爆满</div>
+    </div>
+  </div>
+</div>

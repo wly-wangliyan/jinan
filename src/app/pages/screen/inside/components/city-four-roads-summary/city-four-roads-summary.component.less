@@ -1,0 +1,50 @@
+.summary {
+  position: relative;
+  //font-family: SourceHanSansSC-Bold, SourceHanSansSC;
+  background: url("/assets/images/bg_city_item.png") no-repeat;
+  background-size: contain;
+}
+
+.summary-container {
+  width: 456px;
+  height: 144px;
+
+  .header {
+    text-align: center;
+    font-weight: bold;
+  }
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 8px;
+
+    li {
+      width: 104px;
+      height: 88px;
+      background: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 45, 103, .6)), to(rgba(5, 16, 42, .6)));
+      background: linear-gradient(1turn, rgba(0, 45, 103, .6), rgba(5, 16, 42, .6));
+      -webkit-box-shadow: 0 10px 20px 0 rgba(6, 164, 255, .2), 0 -10px 20px 0 rgba(0, 162, 255, .2);
+      box-shadow: 0 10px 20px 0 rgba(6, 164, 255, .2), 0 -10px 20px 0 rgba(0, 162, 255, .2);
+      border: 1px solid rgba(27, 158, 234, .6);
+      text-align: center;
+      //cursor: pointer;
+
+      .number {
+        width: 80px;
+        height: 40px;
+        margin: 5px auto;
+        font-family: electronicFont;
+      }
+
+      .type {
+        font-size: 14px;
+        font-weight: bold;
+        color: #bfe8ff;
+        line-height: 20px;
+      }
+    }
+  }
+
+}
+

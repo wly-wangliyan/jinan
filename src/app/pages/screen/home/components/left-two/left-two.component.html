@@ -1,0 +1,9 @@
+<div class="left-two-container">
+  <div class="title">
+    <span>新能源配比</span>
+  </div>
+  <div class="content">
+    <div class="pie-chart" echarts [options]='optionA' (chartInit)="onChartInitA($event)"></div>
+    <div class="pie-chart" echarts [options]='optionB' (chartInit)="onChartInitB($event)"></div>
+  </div>
+</div>

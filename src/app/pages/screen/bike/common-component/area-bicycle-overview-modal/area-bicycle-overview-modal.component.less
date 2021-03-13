@@ -1,0 +1,119 @@
+.modal-wrap {
+  width: 457px;
+  height: 801px;
+  background: url("/assets/bike-images/modal-bg.png") no-repeat;
+
+  .modal-header-common {
+    margin: 10px auto;
+    position: relative;
+
+    .header-title {
+      font-size: 22px;
+      //font-family: Source Han Sans SC;
+      font-weight: bold;
+      color: #bfe8ff;
+      text-align: center;
+    }
+
+    .header-icon {
+      position: absolute;
+      background: url(/assets/bike-images/back.png) no-repeat 14px 14px;
+      background-size: 12px;
+      width: 40px;
+      height: 40px;
+      background-color: #071035;
+      cursor: pointer;
+      border: 1px solid #1995de;
+      border-radius: 50%;
+      right: 9px;
+      top: -3px;
+    }
+  }
+
+  .modal-body-common {
+    height: 100%;
+
+    .modal-title {
+      width: 438px;
+      height: 50px;
+      background: #071035;
+      border: 1px solid #1995de;
+      margin: 10px auto;
+      line-height: 50px;
+
+      & > tr {
+        display: flex;
+        justify-content: space-around;
+
+        & > td {
+          text-align: center;
+
+          font-size: 20px;
+          //font-family: Source Han Sans SC;
+          font-weight: normal;
+          color: #ffffff;
+          width: 50%;
+        }
+      }
+    }
+
+    .modal-content-common {
+      height: 683px;
+      overflow-y: auto;
+
+      & > tr {
+        display: flex;
+        justify-content: space-around;
+
+        //&:hover {
+        //  background: rgba(#1FB3FF, .1) !important;
+        //}
+        //
+        //&:hover > td {
+        //  color: #1fb3ff !important;
+        //}
+
+        & > td {
+          pointer-events: none;
+          font-size: 16px;
+          //font-family: Source Han Sans SC;
+          font-weight: bold;
+          color: #bce4fc;
+          text-align: center;
+          line-height: 36px;
+          width: 50%;
+        }
+      }
+    }
+  }
+}
+
+section {
+  position: absolute;
+  -webkit-transition: all 2s;
+  transition: all 2s;
+  z-index: 100;
+  top: 100px;
+  left: -500px;
+}
+
+div::-webkit-scrollbar {
+  width: 6px;
+}
+
+div::-webkit-scrollbar-track {
+  border-radius: 3px;
+}
+
+div::-webkit-scrollbar-thumb {
+  background: #1995de;
+  border-radius: 3px;
+}
+
+div::-webkit-scrollbar-thumb:hover {
+  background: #1995de;
+}
+
+div::-webkit-scrollbar-corner {
+  background: #1995de;
+}

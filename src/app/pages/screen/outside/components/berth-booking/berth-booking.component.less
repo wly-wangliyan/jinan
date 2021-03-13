@@ -1,0 +1,109 @@
+.berth-container {
+  width: 456px;
+  display: flex;
+
+  .berth-left {
+    width: 188px;
+    margin-right: 10px;
+
+    .header {
+      padding-left: 20px;
+      background: url(/assets/images/bg_rectangle_header3.png) no-repeat;
+      background-size: contain;
+    }
+
+    .berth-chart {
+      height: 182px;
+      border: 1px solid #1995DE;
+      overflow: hidden;
+      position: relative;
+
+      &:before {
+        content: ' ';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 188px;
+        height: 180px;
+        background: linear-gradient(0deg, #002B65 0%, #040F2B 100%);
+        opacity: 0.52;
+      }
+    }
+  }
+
+  .berth-right {
+    flex: 1;
+
+    .select {
+      height: 40px;
+
+      nz-select {
+        width: 258px;
+      }
+    }
+
+
+    .table-content {
+      text-align: center;
+      border: 1px solid #1995DE;
+
+      .scroll-box {
+        height: 180px;
+        background: rgba(5, 16, 42, .8);
+        margin: 0;
+        overflow: hidden;
+
+        .scroll-box-item {
+          height: 30px;
+          line-height: 30px;
+          color: #32FFB4;
+          text-align: left;
+          padding-left: 15px;
+          display: flex;
+
+          & > span:nth-of-type(1) {
+            width: 80px;
+          }
+
+          & > span:nth-of-type(2) {
+            width: 90px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.scroll-box {
+  margin: auto;
+  //width: 456px;
+  height: 384px;
+  overflow: hidden;
+  //cursor: pointer;
+  color: #32ffb4;
+  font-size: 14px;
+  //border: 1px solid #1995de;
+  border-top: none;
+  font-weight: bold;
+}
+
+.scroll-box-item {
+  flex: 1;
+  justify-content: stretch;
+  height: 48px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  background-color: #8db8ff;
+}
+
+.scroll-box-item:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.scroll-box-item > div {
+  text-align: center;
+  height: 48px;
+  line-height: 48px;
+}
+

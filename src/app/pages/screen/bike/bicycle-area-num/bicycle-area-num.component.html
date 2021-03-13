@@ -1,0 +1,14 @@
+<div class="common-head">
+  区域单车数
+</div>
+
+<div class="shareBike_r_t_body">
+  <div class="area_bike_num_div" (click)='onAreaBickNumDivClick(item.region_label_id,item.label_name,item.region_ids)'
+    *ngFor="let item of tmpRegionLabelList">
+    <div class="num">
+      <app-magic-number [sHeight]="50" [sNumberWidth]="18" [sMaxLength]='5' [sFontSize]="32" [sNumber]='item.tmpNum'>
+      </app-magic-number>
+    </div>
+    <div class="area">{{item.label_name||''}}</div>
+  </div>
+</div>

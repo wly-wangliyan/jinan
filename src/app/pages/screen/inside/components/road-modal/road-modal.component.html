@@ -1,0 +1,34 @@
+<div class="road-modal" #roadModal>
+    <div class="road-container">
+        <div class="road-diolag">
+            <div class="close" (click)="close()"></div>
+            <div class="title">
+                <span>{{roadParking.parking_name}}</span>
+            </div>
+            <ul class="total-spot-info">
+                <li>车位总数：{{roadParking.parking_space_count}}</li>
+                <li>剩余泊位数：{{roadParking.real_time_surplus_spots}}</li>
+            </ul>
+            <div class="spot-container" *ngIf="spotList.length>0">
+                <ul>
+                    <li *ngFor="let spots of spotList;let index=index;">
+                        <span *ngFor="let spot of spots;let zIndex=index;" [class.red]="spot.has_car">
+                            {{spot.has_car?spot.car_id:spot.remote_spot_num}}
+                        </span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="other-info">
+                <div class="other-left">
+                    <div><b class="red"></b>已停车位</div>
+                    <div><b class="green"></b>空闲车位</div>
+                </div>
+                <div class="other-right" *ngIf="employeeInfo">
+                    <div>收费员：{{employeeInfo.real_name}}</div>
+                    <div>手机号：{{employeeInfo.telephone}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+.map-info-modal-container {
+  width: 268px;
+  height: 270px;
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    width: 245px;
+    height: 40px;
+    margin-left: 12px;
+    background: url(/assets/images/home/map_modal_header.png);
+    text-align: center;
+    font-size: 22px;
+    color: #bfe8ff;
+    line-height: 40px;
+    font-weight: bold;
+  }
+
+  .content {
+    background-color: rgba(4, 10, 34, 0.9);
+    height: 230px;
+    width: 100%;
+    border: 1px solid #1995de;
+    display: flex;
+    flex-direction: column;
+    color: #32ffb4;
+
+    .district-name {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 31px;
+      margin-left: 48px;
+      height: 20px;
+    }
+
+    .info-line {
+      height: 18px;
+      width: 100%;
+      display: flex;
+      margin-top: 20px;
+      line-height: 18px;
+
+      & > div:first-child {
+        width: 98px;
+        text-align: right;
+        margin-right: 8px;
+        font-weight: normal;
+      }
+
+      & > div:last-child {
+        color: white;
+        font-size: 14px;
+        height: 18px;
+        width: 121px;
+        background-color: rgba(3, 65, 190, 0.2);
+        display: flex;
+        font-weight: bold;
+      }
+
+      .percent-block {
+        width: 100px;
+        height: 18px;
+        margin-right: 2px;
+        transition: width 0.5s;
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+<div class="main-container">
+  <div class="header">
+    车辆进出场列表
+  </div>
+  <div class="table-content">
+    <div class="table-header">
+      <span>社区名称</span>
+      <span>车牌号</span>
+      <span>进场时间</span>
+      <span>出场时间</span>
+    </div>
+        <div class="scroll-box" #scrollDiv (mouseenter)="onScrollDivMouseEnter()" (mouseleave)="onScrollDivMouseLeave()">
+          <div class="scroll-box-item" *ngFor="let dataItem of dataList"
+               [ngStyle]="{'background-color': dataItem.isOdd ? 'rgba(141, 184, 255, 0)':'rgba(141, 184, 255, 0.1)'}">
+            <div class="scroll-box-title">
+              {{dataItem.source.name}}
+            </div>
+            <div>
+              {{dataItem.source.car_id}}
+            </div>
+            <div>
+              {{dataItem.source.entrance_time}}
+            </div>
+            <div>
+              {{dataItem.source.exit_time}}
+            </div>
+          </div>
+        </div>
+  </div>
+</div>
+

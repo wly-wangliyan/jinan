@@ -1,0 +1,83 @@
+.right-two-container {
+  width: 460px;
+  height: 448px;
+
+  .table-header {
+    background: url("/assets/images/home/right_two_header.png");
+    height: 64px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    font-size: 18px;
+    color: #bfe8ff;
+    position: relative;
+    font-weight: bold;
+
+    .title {
+      position: absolute;
+      top: 0px;
+      width: 100%;
+      font-size: 22px;
+      //font-weight: bold;
+    }
+
+    div {
+      position: relative;
+      display: flex;
+      justify-content: center;
+
+      span {
+        position: absolute;
+        bottom: 0;
+      }
+    }
+  }
+
+  .table-header > div:first-of-type,
+  .scroll-box-item > div:first-child {
+    width: 152px;
+  }
+
+  .table-header > div:nth-of-type(2),
+  .scroll-box-item > div:nth-child(2) {
+    width: 153px;
+  }
+
+  .table-header > div:last-of-type,
+  .scroll-box-item > div:last-child {
+    width: 152px;
+  }
+
+  .scroll-box {
+    margin: auto;
+    width: 456px;
+    height: 384px;
+    overflow: hidden;
+    cursor: pointer;
+    color: #32ffb4;
+    font-size: 14px;
+    border: 1px solid #1995de;
+    border-top: none;
+    font-weight: bold;
+  }
+
+  .scroll-box-item {
+    flex: 1;
+    justify-content: stretch;
+    height: 48px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    background-color: #8db8ff;
+  }
+
+  .scroll-box-item:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  .scroll-box-item > div {
+    text-align: center;
+    height: 48px;
+    line-height: 48px;
+  }
+}

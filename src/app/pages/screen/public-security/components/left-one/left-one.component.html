@@ -1,0 +1,23 @@
+<div class="access-container">
+  <div class="header">
+    社区接入排行榜
+  </div>
+  <div class="table-content">
+    <div class="table-header">
+      <span>区名</span>
+      <span>社区数量</span>
+    </div>
+    <div class="scroll-box" #scrollDiv (mouseenter)="onScrollDivMouseEnter()" (mouseleave)="onScrollDivMouseLeave()">
+      <div class="scroll-box-item" *ngFor="let dataItem of dataList"
+           [ngStyle]="{'background-color': dataItem.isOdd ? 'rgba(141, 184, 255, 0)':'rgba(141, 184, 255, 0.1)'}">
+        <div class="scroll-box-title">
+          {{dataItem.source.name}}
+        </div>
+        <div>
+          {{dataItem.source.value}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

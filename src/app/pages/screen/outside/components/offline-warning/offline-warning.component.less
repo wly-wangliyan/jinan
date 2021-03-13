@@ -1,0 +1,162 @@
+.parking-total-container {
+  width: 457px;
+  height: 800px;
+  //padding: 0 12px;
+  background: url(/assets/bike-images/modal-bg.png) no-repeat;
+  background-size: contain;
+
+  .header {
+    text-align: center;
+  }
+
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    border: 1px solid #1995DE;
+    background: #071035 url(/assets/bike-images/back.png) no-repeat 14px;
+    color: #fff;
+    text-align: center;
+    line-height: 38px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+
+  }
+
+  .table-title {
+    margin: 20px auto 0 auto;
+    height: 50px;
+    border: 1px solid #1c95dc;
+    display: flex;
+    background: #071035;
+    width: 438px;
+    font-weight: normal;
+
+    & > li {
+      flex: 1;
+      text-align: center;
+      line-height: 50px;
+      font-size: 20px;
+    }
+  }
+
+  .table-list {
+    font-size: 16px;
+    overflow-y: auto;
+    height: 630px;
+    width: auto;
+    margin: auto 1px;
+    font-weight: bold;
+
+    //&::-webkit-scrollbar {
+    //  width: 1px;
+    //}
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      border-radius: 3px;
+      background: rgba(0, 0, 0, 0.1);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #1995de;
+      border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: #1995de;
+    }
+
+    &::-webkit-scrollbar-corner {
+      background: #1995de;
+    }
+
+    & > li {
+      padding: 10px 0;
+      display: flex;
+      align-items: center;
+
+      & > span {
+        flex: 1;
+        text-align: center;
+      }
+    }
+  }
+
+
+  .table-list > li > span {
+    display: block;
+  }
+
+  .table-title > li:nth-of-type(1) {
+    color: rgb(129, 255, 93);
+    flex: 0.26;
+  }
+
+  .table-list > li > span:nth-of-type(1) {
+    color: rgb(129, 255, 93);
+    flex: 0.26;
+  }
+
+  .table-title > li:nth-of-type(2) {
+    color: rgb(255, 111, 111);
+    flex: 0.37;
+  }
+
+  .table-list > li > span:nth-of-type(2) {
+    color: rgb(255, 111, 111);
+    flex: 0.37;
+  }
+
+  .table-title > li:nth-of-type(3) {
+    color: rgb(247, 181, 0);
+    flex: 0.37;
+  }
+
+  .table-list > li > span:nth-of-type(3) {
+    color: rgb(247, 181, 0);
+    flex: 0.37;
+  }
+
+  .table-header {
+    padding: 0 10px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+
+    .select, .ant-select {
+      width: 140px !important;
+    }
+
+    button {
+      width: 60px;
+      height: 40px;
+      border: 1px solid #1995DE;
+      border-radius: 5px;
+      color: #FFFFFF;
+      background: #01204D;
+      cursor: pointer;
+      outline: none;
+      font-weight: normal;
+    }
+
+    .offline-count {
+      width: 144px;
+      height: 40px;
+      border: 1px solid #1995DE;
+      border-radius: 5px;
+      color: #FFFFFF;
+      font-size: 14px;
+      font-weight: normal;
+      text-align: center;
+      line-height: 38px;
+    }
+  }
+}

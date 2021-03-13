@@ -1,0 +1,32 @@
+<div class="main-container">
+  <div class="header">
+    周边停车资源分析
+  </div>
+  <div class="table-content">
+    <div class="table-header">
+      <span>社区名称</span>
+      <span>车场名称</span>
+      <span>车辆类型</span>
+      <span>泊位数</span>
+    </div>
+        <div class="scroll-box" #scrollDiv (mouseenter)="onScrollDivMouseEnter()" (mouseleave)="onScrollDivMouseLeave()">
+          <div class="scroll-box-item" *ngFor="let dataItem of dataList"
+               [ngStyle]="{'background-color': dataItem.isOdd ? 'rgba(141, 184, 255, 0)':'rgba(141, 184, 255, 0.1)'}">
+            <div class="scroll-box-title">
+              {{dataItem.source.name}}
+            </div>
+            <div>
+              {{dataItem.source.parking_name}}
+            </div>
+            <div>
+              {{dataItem.source.parking_type}}
+            </div>
+            <div>
+              {{dataItem.source.spot}}
+            </div>
+          </div>
+        </div>
+  </div>
+</div>
+
+

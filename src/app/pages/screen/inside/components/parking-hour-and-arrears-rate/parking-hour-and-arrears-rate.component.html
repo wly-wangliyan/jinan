@@ -1,0 +1,6 @@
+<div class="rate-container">
+  <app-item-header [nameList]="['停车时长','欠费率']"
+                   (nameClick)="onNameChange($event)"></app-item-header>
+  <div class="charts-content" echarts [options]="chartOptions" (chartInit)="onChartInit($event)">
+  </div>
+</div>

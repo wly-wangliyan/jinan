@@ -1,0 +1,25 @@
+<div class="monitor-modal" #parkingMonitorModal>
+  <div class="monitor-container">
+    <div class="monitor-dialog">
+      <div class="close" (click)="close()"></div>
+      <div class="title">
+        <span>{{currentParking.parking_name}}</span>
+      </div>
+      <div class="monitor-body">
+        <div id="live" class="ezuikit-video"></div>
+      </div>
+      <div class="monitor-footer">
+        <div class="arrow left"  *ngIf="isShowArrow" [class.not-allow]="selectLabelIndex===0" (click)="onNextPage(-1)"></div>
+        <div class="area-items" [ngStyle]="{width:isShowArrow?'830px':'926px'}">
+          <ul [ngStyle]="{width:140*labelList[0].length+'px'}" *ngIf="labelList.length>0">
+            <li *ngFor="let data of labelList[selectLabelIndex];let index=index;"
+                [class.active]="selectIndex===index+selectLabelIndex*6" (click)="onChangeArea(index)">{{data.name}}</li>
+          </ul>
+        </div>
+        <div class="arrow right" *ngIf="isShowArrow"  [class.not-allow]="selectLabelIndex===labelList.length-1" 
+        (click)="onNextPage(1)"></div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,211 @@
+.content-flow {
+  display: flex;
+  position: relative;
+  min-height: 550px;
+  padding-bottom: 0;
+
+  -moz-user-select: none;
+  /*火狐*/
+  -webkit-user-select: none;
+  /*webkit浏览器*/
+  -ms-user-select: none;
+  /*IE10*/
+  -khtml-user-select: none;
+  /*早期浏览器*/
+  user-select: none;
+}
+
+.chart-container {
+  border: 1px solid #ddd;
+  // margin: 20px;
+  flex: 1 1 auto;
+  border-radius: 4px;
+}
+
+.chart-search-container {
+  display: flex;
+  margin-right: 20px;
+}
+
+/* 右侧图层 */
+
+.chart-layer-container {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: inline-flex;
+}
+
+.chart-layer-container li {
+  width: 110px;
+  float: left;
+  background: #4460ed;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 10px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: normal;
+  text-align: center;
+}
+
+.selected {
+  background: rgba(68, 96, 237, 0.2) !important;
+  color: #4460ed !important;
+}
+
+.chart-layer-container li:first-child {
+  border-right: none;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.chart-layer-container li:last-child {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.chart-layer-container > div:nth-child(n + 2) {
+  margin-top: 10px;
+}
+
+.map-container {
+  position: relative;
+  margin: 20px;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+}
+
+::ng-deep .amap-info-close {
+  top: 10px;
+  right: 10px;
+}
+
+::ng-deep .content_info {
+  position: relative;
+  width: 210px;
+  color: #32ffb4;
+  padding: 10px;
+  background: rgba(4, 10, 34, 0.9);
+  border: 1px solid rgba(25, 149, 222, 0.6);
+
+  &:after {
+    border-left: 18px solid transparent;
+    border-right: 18px solid transparent;
+    border-top: 24px solid rgba(25, 149, 222, 0.6);
+    bottom: -24px;
+    left: 70px;
+    z-index: 33;
+  }
+}
+
+::ng-deep .range_span {
+  color: #32ffb4;
+}
+
+::ng-deep .img_div {
+  float: left;
+  width: 20px;
+  height: 20px;
+  background: url("/assets/images/rangeIcon.png") no-repeat center;
+}
+
+::ng-deep .info_li {
+  height: 24px;
+  line-height: 24px;
+
+  & > label {
+    text-align: center;
+  }
+}
+
+::ng-deep .warning_text {
+  margin-left: 5px;
+}
+
+::ng-deep .bottom-center .amap-info-sharp {
+  border-left: 16px solid transparent;
+  border-right: 16px solid transparent;
+  border-top: 22px solid rgba(4, 10, 34, 0.9);
+  bottom: -8px;
+  left: 46%;
+  z-index: 34;
+}
+
+::ng-deep .amap-info-content {
+  background: rgba(4, 10, 34, 0.9);
+  overflow: hidden;
+  padding: 0px;
+}
+
+::ng-deep .flashing-marker-center {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  opacity: 0.9;
+  position: relative;
+  margin-top: -10px;
+  margin-left: -5px;
+}
+
+::ng-deep .flashing-marker {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  -webkit-animation: flicker 1.5s linear infinite;
+  -moz-animation: flicker 1.5s linear infinite;
+  -ms-animation: flicker 1.5s linear infinite;
+  -o-animation: flicker 1.5s linear infinite;
+  animation: flicker 1.5s linear infinite;
+  left: -9px;
+  top: -8px;
+  position: absolute;
+}
+
+::ng-deep .normal-marker {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  margin-left: -11px;
+  margin-top: -11px;
+}
+
+@keyframes flicker {
+  0% {
+    transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+    opacity: 0;
+  }
+
+  20% {
+    transform: scale(0.6);
+    -webkit-transform: scale(0.6);
+    opacity: 0.7;
+  }
+
+  40% {
+    transform: scale(0.7);
+    -webkit-transform: scale(0.7);
+    opacity: 0.6;
+  }
+
+  60% {
+    transform: scale(0.8);
+    -webkit-transform: scale(0.8);
+    opacity: 0.5;
+  }
+
+  80% {
+    transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    opacity: 0.4;
+  }
+
+  100% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    opacity: 0;
+  }
+}

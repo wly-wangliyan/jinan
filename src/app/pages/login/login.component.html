@@ -1,0 +1,20 @@
+<div class="main-layout">
+  <div class="content-layout">
+    <div class="content-dialog-header">
+    </div>
+    <div class="content-dialog">
+      <div class="user-group">
+        <div class="tipText">用户名 / User name</div>
+        <input placeholder="请输入用户名" tabindex="1" maxlength="20" name="userName"
+               [(ngModel)]="userName">
+      </div>
+      <div class="pwd-group">
+        <div class="tipText">密码 / Password</div>
+        <input type="password" placeholder="请输入密码" maxlength="20" autocomplete="new-password"
+               name="password" tabindex="2" [(ngModel)]="password" (keyup.enter)="onLoginBtnClick()">
+      </div>
+      <span class="tip-message" [ngStyle]="{visibility: isWrongInput?'visible':'hidden'}">{{wrongMessage}}</span>
+      <button tabindex="3" (click)="onLoginBtnClick()">登 录</button>
+    </div>
+  </div>
+</div>

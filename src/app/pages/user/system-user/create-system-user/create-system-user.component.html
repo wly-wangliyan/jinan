@@ -1,0 +1,52 @@
+<div class="modal" data-keyboard="true" data-backdrop="static" tabindex="-1" #activityPromptDiv>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">新建</div>
+      <form #appendForm="ngForm" autocomplete="off">
+        <div class="modal-body">
+          <div class="row">
+            <label class="control-label">
+              <b>*</b>
+              <span>企业名称:</span>
+            </label>
+            <div class="control-input">
+              <input class="form-control" placeholder="请输入企业名称" [(ngModel)]="systemUser.company_name"
+                     name="company_name" maxlength="20" autocomplete="off" required>
+            </div>
+          </div>
+          <div class="row">
+            <label class="control-label">
+              <b>*</b>
+              <span>系统名称:</span>
+            </label>
+            <div class="control-input">
+              <input class="form-control" placeholder="请输入系统名称" [(ngModel)]="systemUser.system_name"
+                     name="system_name" maxlength="20" autocomplete="off" required>
+            </div>
+          </div>
+          <div class="row">
+            <label class="control-label">
+              <b>*</b>
+              <span>联系电话:</span>
+            </label>
+            <div class="control-input">
+              <input class="form-control" placeholder="请输入联系电话" [(ngModel)]="systemUser.telephone_number"
+                     name="telephone_number" maxlength="20" autocomplete="off" required>
+
+            </div>
+
+          </div>
+        </div>
+        <div class="input-tip" *ngIf="phoneError">请输入正确的联系电话!</div>
+
+      </form>
+      <div class="modal-footer">
+        <button nz-button nzType="primary" type="submit" class="ant-btn ant-btn-primary"
+                [disabled]="!appendForm.form.valid" (click)="onSaveUser()">确定
+        </button>
+        <button nz-button nzType="default" class="cancel-ant-btn" data-dismiss="modal">取消</button>
+      </div>
+
+    </div>
+  </div>
+</div>

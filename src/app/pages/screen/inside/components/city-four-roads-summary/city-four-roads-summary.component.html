@@ -1,0 +1,17 @@
+<div class="summary">
+  <div class="summary-container">
+    <div class="header">
+      全市四类道路汇总信息
+    </div>
+    <ul>
+      <li *ngFor="let data of dataList;let index=index;" (click)="onRoadTypeClick(data,index)">
+        <div class="number" [ngStyle]="{color:data.color}">
+          <app-magic-number [sHeight]="50" [sNumberWidth]="18" [sMaxLength]='5' [sFontSize]="32"
+                            [sNumber]="toString(data.value)">
+          </app-magic-number>
+        </div>
+        <div class="type">{{data.name}}</div>
+      </li>
+    </ul>
+  </div>
+</div>

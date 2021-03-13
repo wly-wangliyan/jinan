@@ -1,0 +1,58 @@
+<section class="total-container" #powerTotalInfoRef>
+  <div class="top-side">
+    <!-- <div class="top-side-item">
+      <app-magic-number [sHeight]="50" [sNumberWidth]="16" [sMaxLength]='5' [sFontSize]="32"
+        [sNumber]="powerTotalInfo.chargingTerminalCount ? powerTotalInfo.chargingTerminalCount + '':'0'">
+      </app-magic-number>
+      <p>充电终端数</p>
+    </div> -->
+    <div class="top-side-item">
+      <app-magic-number [sHeight]="50" [sNumberWidth]="18" [sMaxLength]='5' [sFontSize]="32"
+                        [sNumber]="powerTotalInfo.chargingStationCount ? powerTotalInfo.chargingStationCount + '':'0'">
+      </app-magic-number>
+      <p>充电站数</p>
+    </div>
+    <div class="top-side-item">
+      <app-magic-number [sHeight]="50" [sNumberWidth]="18" [sMaxLength]='5' [sFontSize]="32"
+                        [sNumber]="powerTotalInfo.chargingPoleCount ? powerTotalInfo.chargingPoleCount + '':'0'">
+      </app-magic-number>
+      <p>充电桩数</p>
+    </div>
+    <div class="top-side-item">
+      <app-magic-number [sHeight]="50" [sNumberWidth]="18" [sMaxLength]='5' [sFontSize]="32"
+                        [sNumber]="powerTotalInfo.totalCarCount">
+      </app-magic-number>
+      <p>新能源汽车数</p>
+    </div>
+    <div class="top-side-item">
+      <app-magic-number [sHeight]="50" [sNumberWidth]="18" [sMaxLength]='5' [sFontSize]="32"
+                        [sNumber]="powerTotalInfo.chargingUserCount ? powerTotalInfo.chargingUserCount + '':'0'">
+      </app-magic-number>
+      <p>充电用户数</p>
+    </div>
+  </div>
+  <div class="bottom-side">
+    <div class="bottom-side-item">
+      <p style="margin-top: 30px;margin-bottom: 0px;">本年充电金额</p>
+      <div style="display: flex;justify-content: center;">
+        <app-magic-number [sHeight]="50" [sNumberWidth]="18" [sMaxLength]='5' [sFontSize]="32"
+                          style="font-family: electronicFont;"
+                          [sNumber]="powerTotalInfo.chargingAmountByYear ? powerTotalInfo.chargingAmountByYear + '':'0'">
+        </app-magic-number>
+        <span style="line-height: 50px;">&nbsp;&nbsp;万元</span>
+      </div>
+    </div>
+    <div class="bottom-side-item">
+      <p>充电次数</p>
+      <p><span class="time">今日</span> {{powerTotalInfo.chargingCountByDay}}</p>
+      <p><span class="time">本月</span>{{powerTotalInfo.chargingCountByMonth}}</p>
+      <p><span class="time">本年</span>{{powerTotalInfo.chargingCountByYear}}</p>
+    </div>
+    <div class="bottom-side-item">
+      <p>充电量 <span>(MW)</span></p>
+      <p><span class="time">今日</span>{{powerTotalInfo.chargingVolumeByDay}}</p>
+      <p><span class="time">本月</span>{{powerTotalInfo.chargingVolumeByMonth}}</p>
+      <p><span class="time">本年</span>{{powerTotalInfo.chargingVolumeByYear}}</p>
+    </div>
+  </div>
+</section>

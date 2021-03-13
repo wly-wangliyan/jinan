@@ -1,0 +1,9 @@
+<div class="header">
+  <div class="trapezoid-container">
+        <span class="trapezoid" *ngFor="let name of nameList;let index=index;"
+              [class.active]="selectedIndex===index"
+              (click)="onNameClick(index)">
+        {{name}}
+      </span>
+  </div>
+</div>

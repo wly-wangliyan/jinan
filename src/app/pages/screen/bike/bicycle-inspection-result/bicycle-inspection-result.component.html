@@ -1,0 +1,23 @@
+<div class="common-head">
+    单车巡检结果
+</div>
+<div class="shareBike_r_t_body">
+    <div class="fs-table-container">
+        <table>
+            <tbody>
+                <tr class="tr-thead">
+                    <td>企业</td>
+                    <td>巡查次数</td>
+                    <td>在案车辆</td>
+                    <td>违规车辆</td>
+                </tr>
+                <tr *ngFor="let data of dataList" class="tr-td">
+                    <td>{{data.company_type|fullCompanyType}}</td>
+                    <td>{{data.total_count||0}}</td>
+                    <td>{{data.beian_count||0}}</td>
+                    <td>{{data.not_beian_count||0}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

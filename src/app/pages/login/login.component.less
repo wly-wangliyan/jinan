@@ -1,0 +1,155 @@
+.main-layout {
+  width: 1920px;
+  height: 1080px;
+  background: url("/assets/images/login/login_bg_2x.png") no-repeat center;
+  background-size: 1920px 1080px;
+}
+
+.content-layout {
+  width: 576px;
+  height: 569px;
+  background: url("/assets/images/login/login_content_bg.png");
+  position: absolute;
+  left: 1195px;
+  top: 238px;
+}
+
+.content-dialog-header {
+  background: url("/assets/images/login/login_header.png");
+  width: 307px;
+  height: 70px;
+  margin-left: 134px;
+  margin-top: 33px;
+}
+
+.content-dialog {
+  margin-top: 71px;
+  margin-left: 86px;
+
+  .tipText {
+    width: 172px;
+    height: 20px;
+    font-size: 18px;
+    //font-family: DFPShaoNvW5;
+    font-weight: normal;
+    color: #01cfff;
+    margin-bottom: 11px;
+  }
+
+  .pwd-group > .tipText {
+    margin-top: 23px;
+  }
+
+  input {
+    display: block;
+    width: 400px;
+    height: 50px;
+    background: #040a22;
+    border: 1px solid #1995de;
+    background: rgba(4, 10, 30, 0.5);
+    padding: 16px 0px 16px 19px;
+    font-size: 18px;
+    font-weight: normal;
+    color: #ffffff;
+    line-height: 24px;
+
+    &:hover,
+    &:focus {
+      border: 1px solid #cede19;
+    }
+  }
+
+  /* WebKit browsers */
+
+  input::-webkit-input-placeholder {
+    color: #ffffff !important;
+  }
+
+  /* Mozilla Firefox 4 to 18 */
+
+  input:-moz-placeholder {
+    color: #ffffff !important;
+  }
+
+  /* Mozilla Firefox 19+ */
+
+  input::-moz-placeholder {
+    color: #ffffff !important;
+  }
+
+  /* Internet Explorer 10+ */
+
+  input:-ms-input-placeholder {
+    color: #ffffff !important;
+  }
+
+  //input:-webkit-autofill {
+  //  box-shadow: 0 0 0 1000px inset;
+  //  -webkit-box-shadow: 0 0 0 1000px rgba(4, 10, 30, 0.5) inset;
+  //  -moz-box-shadow: 0 0 0 1000px rgba(4, 10, 30, 0.5) inset;
+  //  -o-box-shadow: 0 0 0 1000px rgba(4, 10, 30, 0.5) inset;
+  //  text-fill-color: #ffffff !important;
+  //  -webkit-text-fill-color: #ffffff !important;
+  //  -moz-text-fill-color: #ffffff !important;
+  //  -o-text-fill-color: #ffffff !important;
+  //}
+
+  .tip-message {
+    display: block;
+    height: 42px;
+    font-size: 12px;
+    //font-family: DFPShaoNvW5;
+    font-weight: normal;
+    color: #e75353;
+    line-height: 42px;
+  }
+
+  button {
+    width: 400px;
+    height: 64px;
+    background: url("/assets/images/login/login_btn_normal.png");
+    font-size: 28px;
+    //font-family: DFPShaoNvW5;
+    font-weight: bold;
+    color: #32ffb4;
+    line-height: 36px;
+    outline: none;
+    border: none;
+
+    &:hover,
+    &:focus {
+      background: url("/assets/images/login/login_btn_hover.png");
+    }
+
+    &:active {
+      background: url("/assets/images/login/login_btn_press.png");
+    }
+
+    &:disabled {
+      background: url("/assets/images/login/login_btn_disable.png");
+      color: rgba(#32ffb4, 0.14)
+    }
+  }
+}
+
+input:-webkit-autofill {
+  box-shadow: 0 0 0 1000px inset !important;
+  -webkit-box-shadow: 0 0 0 1000px inset !important;
+  outline: none !important;
+  font-size: 18px !important;
+  font-weight: normal !important;
+  //font-family: DFPShaoNvW5 !important;
+  text-fill-color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+input:-webkit-autofill::first-line {
+  font-size: 18px !important;
+  font-weight: normal !important;
+  //font-family: DFPShaoNvW5 !important;
+}
+
+input {
+  outline: none;
+  //font-family: DFPShaoNvW5;
+}

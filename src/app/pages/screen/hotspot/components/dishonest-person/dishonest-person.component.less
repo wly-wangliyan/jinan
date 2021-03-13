@@ -1,0 +1,76 @@
+#dishonest-person-container {
+  height: 342px;
+  width: 932px;
+
+  .header {
+    background: url(/assets/images/hotspot/titile_dishonest_bg.png) no-repeat center;
+    text-align: center;
+    height: 54px;
+    line-height: 72px;
+  }
+
+  .table-content {
+    text-align: center;
+    //border: 1px solid #1995DE;
+
+    .table-header {
+      height: 49px;
+      width: 100%;
+      text-align: center;
+      display: flex;
+      font-size: 18px;
+      color: #bfe8ff;
+      line-height: 49px;
+      font-weight: bold;
+      border: 1px solid #1995DE;
+      background: linear-gradient(90deg, #002B65 0%, #040F2B 100%);
+    }
+
+    .table-header > div:first-child,
+    .scroll-box-item > div:first-child {
+      width: 310px;
+    }
+
+    .table-header > div:nth-child(2),
+    .scroll-box-item > div:nth-child(2) {
+      width: 311px;
+    }
+
+    .table-header > div:last-child,
+    .scroll-box-item > div:last-child {
+      width: 311px;
+    }
+
+    .scroll-box {
+      width: 100%;
+      height: 240px;
+      overflow: hidden;
+      cursor: pointer;
+      color: #32ffb4;
+      font-size: 14px;
+      border: 1px solid #1995de;
+      border-top: none;
+      font-weight: bold;
+    }
+
+    .scroll-box-item {
+      flex: 1;
+      justify-content: stretch;
+      height: 48px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      background-color: #8db8ff;
+    }
+
+    .scroll-box-item:hover {
+      background: rgba(255, 255, 255, 0.1) !important;
+    }
+
+    .scroll-box-item > div {
+      text-align: center;
+      height: 48px;
+      line-height: 48px;
+    }
+  }
+}

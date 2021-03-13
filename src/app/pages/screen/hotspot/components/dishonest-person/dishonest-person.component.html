@@ -1,0 +1,26 @@
+<div id="dishonest-person-container">
+  <div class="header">
+    失信人员
+  </div>
+  <div class="table-content">
+    <div class="table-header">
+      <div>姓名</div>
+      <div>手机号</div>
+      <div>失信类型</div>
+    </div>
+    <div class="scroll-box" #scrollDiv (mouseenter)="onScrollDivMouseEnter()" (mouseleave)="onScrollDivMouseLeave()">
+      <div class="scroll-box-item" *ngFor="let dataItem of dataList"
+           [ngStyle]="{'background-color': dataItem.isOdd ? 'rgba(141, 184, 255, 0)':'rgba(141, 184, 255, 0.1)'}">
+        <div class="scroll-box-title">
+          {{dataItem.source.dishonestName}}
+        </div>
+        <div class="ellipsis" [title]="dataItem.source.road_name">
+          {{dataItem.source.dishonestTel}}
+        </div>
+        <div>
+          {{dataItem.source.dishonestType}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

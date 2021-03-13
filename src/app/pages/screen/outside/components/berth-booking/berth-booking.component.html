@@ -1,0 +1,27 @@
+<div class="berth-container">
+  <div class="berth-left">
+    <div class="header">泊位预约</div>
+    <div class="berth-chart" echarts [options]="chartOptions" (chartInit)="onChartInit($event)">
+    </div>
+  </div>
+  <div class="berth-right">
+    <div class="select">
+      <nz-select [ngClass]="{nzSelectOpenState: mySelect.isZOpen}" nzPlaceHolder="选择辖区"
+                 [(ngModel)]="searchParams.code"
+                 (nzOpenChange)='mySelect.isZOpen = $event;' (ngModelChange)="onDistrictChange($event)" #mySelect>
+        <nz-option nzValue="" nzLabel="选择辖区"></nz-option>
+        <nz-option *ngFor="let option of districts" [nzValue]="option.adcode" [nzLabel]="option.NAME_CHN"></nz-option>
+      </nz-select>
+    </div>
+    <div class="table-content">
+      <div class="scroll-box" #scrollDiv (mouseenter)="onScrollDivMouseEnter()" (mouseleave)="onScrollDivMouseLeave()">
+        <div class="scroll-box-item" *ngFor="let dataItem of dataList"
+             [ngStyle]="{'background-color': dataItem.isOdd ? 'rgba(141, 184, 255, 0)':'rgba(141, 184, 255, 0.1)'}">
+          <span class="ellipsis">{{dataItem.source.car_id}}</span>
+          <span class="ellipsis">{{dataItem.source.user_name}}</span>
+          <span>预约成功</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

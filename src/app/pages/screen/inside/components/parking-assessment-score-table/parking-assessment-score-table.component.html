@@ -1,0 +1,33 @@
+<div class="table-container">
+  <div class="header">
+    车场考核分数列表
+  </div>
+  <div class="select">
+    <nz-select [ngClass]="{nzSelectOpenState: mySelect.isZOpen}" nzPlaceHolder="选择辖区" [(ngModel)]="searchParams.code"
+               (nzOpenChange)='mySelect.isZOpen = $event;' (ngModelChange)="onDistrictChange($event)" #mySelect>
+      <nz-option nzValue="" nzLabel="选择辖区"></nz-option>
+      <nz-option *ngFor="let option of districts" [nzValue]="option.adcode+''" [nzLabel]="option.NAME_CHN"></nz-option>
+    </nz-select>
+  </div>
+  <div class="table-content">
+    <div class="table-header">
+      <span>区名</span>
+      <span>车场名称</span>
+      <span>综合评分</span>
+    </div>
+    <div class="scroll-box" #scrollDiv (mouseenter)="onScrollDivMouseEnter()" (mouseleave)="onScrollDivMouseLeave()">
+      <div class="scroll-box-item" *ngFor="let dataItem of dataList"
+           [ngStyle]="{'background-color': dataItem.isOdd ? 'rgba(141, 184, 255, 0)':'rgba(141, 184, 255, 0.1)'}">
+        <div class="scroll-box-title ellipsis">
+          {{dataItem.source.district}}
+        </div>
+        <div class="ellipsis" [title]="dataItem.source.parking_name">
+          {{dataItem.source.parking_name}}
+        </div>
+        <div>
+          {{dataItem.source.parking_score}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

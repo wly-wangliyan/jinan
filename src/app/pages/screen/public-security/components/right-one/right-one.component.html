@@ -1,0 +1,31 @@
+<div class="main-container">
+  <div class="header">
+    社区停车利用率
+  </div>
+  <div class="select">
+    <nz-select [ngClass]="{nzSelectOpenState: mySelect.isZOpen}" nzPlaceHolder="请选择社区" [(ngModel)]="selectCommunity"
+               (nzOpenChange)='mySelect.isZOpen = $event;' (ngModelChange)="onCommunityChange($event)" #mySelect>
+      <nz-option nzValue="" nzLabel="请选择社区"></nz-option>
+      <nz-option *ngFor="let option of communitys" [nzValue]="option" [nzLabel]="option"></nz-option>
+    </nz-select>
+  </div>
+  <ul class="total-count">
+    <li>
+      <span>总泊位数</span>
+      <div>
+        <app-magic-number [sHeight]="50" [sNumberWidth]="13" [sMaxLength]='5' [sFontSize]="24"
+                          [sNumber]="totalCount+''">
+        </app-magic-number>
+      </div>
+    <li>
+      <span>剩余泊位数</span>
+      <div>
+        <app-magic-number [sHeight]="50" [sNumberWidth]="13" [sMaxLength]='5' [sFontSize]="24"
+                          [sNumber]="surplusCount+''">
+        </app-magic-number>
+      </div>
+    </li>
+  </ul>
+  <div class="content" echarts [options]="chartOptions" (chartInit)="onChartInit($event)">
+  </div>
+</div>

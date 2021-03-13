@@ -1,0 +1,32 @@
+<div class="outside">
+  <div id="outside-map-container" class="outside-map-container">
+  </div>
+
+  <ul class="marker-type-container">
+    <li [class.active]="isStartSelect" (click)="onChangeSelectMap(true)">{{isStartSelect?'重新':'开始'}}选取</li>
+    <li [class.active]="!isStartSelect" (click)="onChangeSelectMap(false)">关闭选取</li>
+  </ul>
+
+  <div class="parking-type-container">
+    <app-parking-type></app-parking-type>
+  </div>
+
+  <app-parking-monitor #parkingMonitorModal></app-parking-monitor>
+
+  <div class="left-side">
+    <div class="inside-item">
+      <!-- 停车场信息相关 -->
+      <app-parking-info (parkingFieldChange)="onParkingFieldChange($event)"></app-parking-info>
+    </div>
+  </div>
+  <div class="right-side">
+    <div class="inside-item">
+      <!-- 泊位预约 -->
+      <app-berth-booking></app-berth-booking>
+    </div>
+    <div class="inside-item">
+      <!-- 车场接入排行榜 -->
+      <app-parking-access-ranking></app-parking-access-ranking>
+    </div>
+  </div>
+</div>

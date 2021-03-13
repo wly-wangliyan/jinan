@@ -1,0 +1,111 @@
+.header-container {
+  height: 135px;
+  width: 1920px;
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .header-bar {
+    width: 1903px;
+    height: 82px;
+    position: absolute;
+    display: flex;
+    background: url("/assets/images/components/header_bg1.png");
+    color: #4394c0;
+    font-size: 20px;
+    line-height: 44px;
+    font-weight: bold;
+
+    .title {
+      width: 603px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .btn-group {
+      display: flex;
+    }
+
+    .left-btn {
+      margin-top: 11px;
+      width: 175px;
+      height: 44px;
+      text-align: center;
+      background: url("/assets/images/components/btn_L_normal.png");
+    }
+
+    .left-btn:hover,
+    .right-btn:hover {
+      cursor: pointer;
+    }
+
+    .left-btn.left-active,
+    .left-btn:hover {
+      background: url("/assets/images/components/btn_L_active.png");
+      color: #32ffb4;
+    }
+
+    .left-btn:first-child {
+      margin-left: 92px;
+    }
+
+    .right-btn {
+      margin-top: 11px;
+      width: 175px;
+      height: 44px;
+      text-align: center;
+      background: url("/assets/images/components/btn_R_normal.png");
+    }
+
+    .right-btn:first-child {
+      margin-left: 26px;
+    }
+
+    .right-btn.right-active,
+    .right-btn:hover {
+      background: url("/assets/images/components/btn_R_active.png");
+      color: #32ffb4;
+    }
+  }
+
+  .weather-bar {
+    width: 646px;
+    height: 75px;
+    position: absolute;
+    top: 60px;
+    background: url("/assets/images/components/weather_bg.png");
+
+    .time-content {
+      margin-top: 42px;
+      height: 17px;
+      position: relative;
+
+      span {
+        display: inline-block;
+        height: 17px;
+        font-size: 16px;
+        //font-family: Source Han Sans SC;
+        font-weight: bold;
+        color: #ffffff;
+        line-height: 17px;
+        position: absolute;
+      }
+
+      .date {
+        left: 190px;
+      }
+
+      .time {
+        left: 293px;
+      }
+
+      .week {
+        left: 408px;
+      }
+    }
+  }
+}

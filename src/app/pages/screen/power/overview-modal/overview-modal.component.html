@@ -1,0 +1,32 @@
+<section class="modal-wrap" #powerViewModal>
+    <div class="modal-header-common">
+        <div class="header-title" *ngIf="title=='changjia'||title=='leixing'">新能源汽车概况</div>
+        <div class="header-title" *ngIf="title=='yunyingshang'">运营商排名</div>
+        <div class="header-title" *ngIf="title=='dianzhan'">当月电站排名</div>
+        <div class="header-icon" id='backIcon'></div>
+    </div>
+    <div class="modal-body-common">
+        <div class="modal-title">
+            <tr>
+                <td *ngIf="title=='changjia'">厂家名称</td>
+                <td *ngIf="title=='leixing'">车辆类型</td>
+                <td *ngIf="title=='yunyingshang'">运营商</td>
+                <td *ngIf="title=='dianzhan'">充电站名称</td>
+                <td *ngIf="title=='changjia'||title=='leixing'">车辆数量</td>
+                <td *ngIf="title=='yunyingshang'">充电桩数量</td>
+                <td *ngIf="title=='dianzhan'">充电量</td>
+            </tr>
+        </div>
+        <div class="modal-content-common">
+            <tr *ngFor="let data of dataList">
+                <td *ngIf="title=='changjia'">{{data.manufacturer_name}}</td>
+                <td *ngIf="title=='leixing'">{{data.vehicle_type}}</td>
+                <td *ngIf="title=='yunyingshang'">{{data.operator_name}}</td>
+                <td *ngIf="title=='yunyingshang'">{{data.pole_count}}</td>
+                <td *ngIf="title=='changjia'||title=='leixing'">{{data.count}}</td>
+                <td *ngIf="title=='dianzhan'">{{data.station_name}}</td>
+                <td *ngIf="title=='dianzhan'">{{data.charging_volume}}</td>
+            </tr>
+        </div>
+    </div>
+</section>

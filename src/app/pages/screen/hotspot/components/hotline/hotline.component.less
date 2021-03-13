@@ -1,0 +1,151 @@
+#hotline-container {
+  height: 359px;
+  width: 457px;
+  background: url(/assets/images/hotspot/hotline_bg.png) no-repeat;
+
+  .title {
+    height: 42px;
+    font-size: 22px;
+    font-family: Source Han Sans SC;
+    font-weight: bold;
+    color: #BFE8FF;
+    line-height: 22px;
+    display: flex;
+    align-items: flex-end;
+    position: absolute;
+    top: 0px;
+
+    &::before {
+      content: '';
+      width: 24px;
+      height: 18px;
+      background: url(/assets/images/hotspot/tel_icon.png) no-repeat;
+      margin: 0px 9px 2px 19px;
+    }
+  }
+
+
+  .complaint-content {
+    position: absolute;
+    width: 200px;
+    height: 96px;
+    background: url(/assets/images/hotspot/complaint_bg.png) no-repeat;
+    top: 63px;
+    left: 20px;
+
+    .icon {
+      height: 52px;
+      width: 52px;
+      background: url(/assets/images/hotspot/exclamatory_mark.png) no-repeat;
+      position: absolute;
+      left: 20px;
+      top: 22px;
+    }
+
+    .number {
+      width: 100%;
+      height: 16px;
+      font-size: 24px;
+      font-weight: normal;
+      color: #FFFFFF;
+      display: flex;
+      padding-left: 100px;
+      //line-height: 68px;
+      font-family: electronicFont;
+      margin-top: 30px;
+
+      & > span {
+        font-size: 14px;
+        font-family: Source Han Sans SC;
+        font-weight: 500;
+        margin-left: 2px;
+      }
+    }
+
+    .complaint-number {
+      font-size: 14px;
+      font-family: Source Han Sans SC;
+      font-weight: bold;
+      color: #BFE8FF;
+      margin: 17px 0px 0px 118px;
+      height: 14px;
+      line-height: 14px;
+    }
+  }
+
+
+  .chart-container {
+    width: 100%;
+    height: 100%;
+    //display: flex;
+    position: relative;
+
+    .chartA, .chartB {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    .chartB {
+      pointer-events: none;
+    }
+
+    .chartA {
+      pointer-events: none;
+    }
+  }
+
+
+  .line {
+    width: 360px;
+    height: 1px;
+    background: #1995DE;
+    position: absolute;
+    left: 42px;
+    top: 311px;
+  }
+
+  .legendA {
+    position: absolute;
+    top: 104px;
+    left: 279px;
+    font-size: 14px;
+    font-family: Source Han Sans SC;
+    font-weight: 400;
+    color: #FFFFFF;
+    //line-height: 36px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -32px;
+      top: 4px;
+      width: 26px;
+      height: 14px;
+      background: #5AD8A6;
+      border-radius: 2px;
+    }
+
+  }
+
+  .legendB {
+    position: absolute;
+    top: 134px;
+    left: 279px;
+    font-size: 14px;
+    font-family: Source Han Sans SC;
+    font-weight: 400;
+    color: #FFFFFF;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -32px;
+      top: 4px;
+      width: 26px;
+      height: 14px;
+      background: #3473FE;
+      border-radius: 2px;
+    }
+  }
+}

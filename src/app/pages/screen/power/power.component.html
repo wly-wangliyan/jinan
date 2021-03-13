@@ -1,0 +1,71 @@
+<div id="power-map-container" class="inside-map-container">
+</div>
+
+<div class="marker-type-container">
+  <nz-select [ngClass]="{nzSelectOpenState: mySelect.isZOpen}" [(ngModel)]="selectedDistrictValue" nzAllowClear
+    [nzAllowClear]='false' (nzOpenChange)='mySelect.isZOpen = $event' #mySelect
+    (ngModelChange)='onDistrictChange($event)'>
+    <nz-option [nzValue]="''" [nzLabel]="'全市'"></nz-option>
+    <nz-option *ngFor="let district of districts" [nzValue]="district.adcode" [nzLabel]="district.NAME_CHN">
+    </nz-option>
+  </nz-select>
+
+  <nz-select [ngClass]="{nzSelectOpenState: mySelect.isZOpen}" [(ngModel)]="selectedOperatorValue" nzAllowClear
+    [nzAllowClear]='false' (nzOpenChange)='mySelect.isZOpen = $event' #mySelect
+    (ngModelChange)='onOperatorChange($event)' nzNotFoundContent='暂无数据'>
+    <nz-option nzValue="" nzLabel="请选择运营商"></nz-option>
+    <nz-option *ngFor="let operator of operatorList" [nzValue]="operator" [nzLabel]="operator">
+    </nz-option>
+  </nz-select>
+
+  <button class="search-btn" (click)='searchBtnClick()'>搜索</button>
+</div>
+
+<app-overview-modal></app-overview-modal>
+
+<div class="left-side" #leftSideRef>
+  <div class="inside-item">
+    <!-- 总体信息   -->
+    <app-power-total-info></app-power-total-info>
+  </div>
+  <div class="inside-item" style="display: flex;margin-left: 20px;" #rangeInfoRef>
+    <div class="inside-item-range" (click)="onBtnClick('yunyingshang')">运营商排名<img src="/assets/power-images/hand.png">
+    </div>
+    <div class="inside-item-range" (click)="onBtnClick('dianzhan')">当月电站排名<img src="/assets/power-images/hand.png">
+    </div>
+  </div>
+  <div class="inside-item">
+    <!-- 充电量信息   -->
+    <app-charging-amount></app-charging-amount>
+  </div>
+  <div class="inside-item">
+    <!-- 充电桩饼形图   -->
+    <app-charging-pile></app-charging-pile>
+  </div>
+</div>
+<div class="right-side">
+  <div class="inside-item" style="display: flex;">
+    <div class="inside-item-time">停车减免小时
+      <app-magic-number [sHeight]="50" [sNumberWidth]="20" [sMaxLength]='5' [sFontSize]="38"
+        [sNumber]='data.parking_relief'>
+      </app-magic-number>
+    </div>
+    <div class="inside-item-time">充电减免小时
+      <app-magic-number [sHeight]="50" [sNumberWidth]="20" [sMaxLength]='5' [sFontSize]="38"
+        [sNumber]='data.recharge_relief'>
+      </app-magic-number>
+    </div>
+  </div>
+  <div class="inside-item">
+    <!-- 充电补贴车次   -->
+    <app-charging-allowance-number></app-charging-allowance-number>
+  </div>
+  <div class="inside-item">
+    <!--  充电补贴车辆 -->
+    <app-charging-subsidy-vehicle></app-charging-subsidy-vehicle>
+  </div>
+  <div class="inside-item">
+    <!--  设备概况 -->
+    <app-device-overview></app-device-overview>
+  </div>
+</div>

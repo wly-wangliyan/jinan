@@ -1,0 +1,19 @@
+<div class="common-head">
+  充电补贴车次
+</div>
+
+<div class="charge-allowance-body">
+  <div class="title">
+    <div>今日补贴车次
+      <app-magic-number [sHeight]="16" [sNumberWidth]="13" [sMaxLength]='5' [sFontSize]="24" [sNumber]='todayData'>
+      </app-magic-number>
+    </div>
+    <div>累计补贴车次
+      <app-magic-number [sHeight]="16" [sNumberWidth]="13" [sMaxLength]='5' [sFontSize]="24" [sNumber]='totalData'>
+      </app-magic-number>
+    </div>
+  </div>
+  <div class="content" (mouseenter)="pauseLoopScroll()" (mouseleave)="loopScroll()">
+    <div class="parking-count-content" echarts [options]="chartOptions"></div>
+  </div>
+</div>

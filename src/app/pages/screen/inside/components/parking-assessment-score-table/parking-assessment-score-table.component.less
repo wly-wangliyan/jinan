@@ -1,0 +1,96 @@
+.table-container {
+  width: 456px;
+  height: 554px;
+  position: relative;
+
+  .header {
+    padding-left: 20px;
+    background: url(/assets/images/bg_rectangle_header2.png) no-repeat;
+    background-size: contain;
+    font-weight: bold;
+  }
+
+  .select {
+    position: absolute;
+    z-index: 1;
+    left: 256px;
+    top: -5px;
+
+    nz-select {
+      width: 200px;
+      height: 40px;
+    }
+  }
+
+  .table-content {
+    border: 1px solid #1995de;
+    text-align: center;
+
+    .table-header {
+      height: 48px;
+      line-height: 48px;
+      font-weight: bold;
+      color: #bfe8ff;
+      font-size: 18px;
+      display: flex;
+      border-bottom: 1px solid #1995de;
+      background: linear-gradient(90deg, #002b65 0%, #040f2b 100%);
+      opacity: 0.9;
+
+      span {
+        flex: 1;
+      }
+    }
+
+    .scroll-box {
+      height: 480px;
+      background: rgba(5, 16, 42, 0.8);
+      margin: 0;
+      overflow: hidden;
+
+      .scroll-box-item {
+        height: 40px;
+        line-height: 40px;
+        display: flex;
+
+        div {
+          flex: 1;
+          color: #32ffb4;
+        }
+      }
+    }
+  }
+}
+
+.scroll-box {
+  margin: auto;
+  //width: 456px;
+  height: 384px;
+  overflow: hidden;
+  //cursor: pointer;
+  color: #32ffb4;
+  font-size: 14px;
+  //border: 1px solid #1995de;
+  border-top: none;
+  font-weight: bold;
+}
+
+.scroll-box-item {
+  flex: 1;
+  justify-content: stretch;
+  height: 48px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  background-color: #8db8ff;
+}
+
+.scroll-box-item:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.scroll-box-item > div {
+  text-align: center;
+  height: 48px;
+  line-height: 48px;
+}

@@ -1,0 +1,69 @@
+<div id="bike-map-container" class="bike-map-container">
+  <app-heat-map-level #heatMapLevel></app-heat-map-level>
+</div>
+<div class="page-mask"></div>
+
+<ul class="marker-type-container">
+  <li [class.active]="isShowBasicHeatMap" (click)="onHeadMapBasicLayerBtnClick()">基础图层</li>
+  <li [class.active]="isShowAlertMap" (click)="onHeadMapCustomLayerBtnClick()">预警图层</li>
+</ul>
+
+<app-area-bicycle-overview-modal></app-area-bicycle-overview-modal>
+
+<!--left-->
+<div class="page-container">
+  <div class="page-left" #pageLeftRef>
+    <div class="left-top">
+      <!--各企业单车备案情况-->
+      <app-bicycle-record></app-bicycle-record>
+    </div>
+    <div class="left-center">
+      <!--单车种类数据对比情况-->
+      <app-bicycle-types-comparison></app-bicycle-types-comparison>
+    </div>
+    <div class="left-bottom">
+      <!--各企业单车使用情况-->
+      <app-bicycle-usage></app-bicycle-usage>
+    </div>
+  </div>
+
+  <!--center-->
+  <div class="page-center">
+    <div class="shareBike_center_img"></div>
+    <div class="center-top">
+
+    </div>
+    <div class="center-bottom">
+      <div class="center-bottom-left">
+        <!-- 单车订单数-->
+        <app-full-bicycle-info-table templateType='order' [companyList]='companyList' [textAlign]="'start'">
+        </app-full-bicycle-info-table>
+      </div>
+      <div class="center-bottom-right">
+        <!--实时单车行驶数-->
+        <app-full-bicycle-info-table templateType='travel' [companyList]='companyList' [textAlign]="'end'">
+        </app-full-bicycle-info-table>
+      </div>
+    </div>
+  </div>
+
+  <!--right-->
+  <div class="page-right">
+    <div class="right-top-area">
+      <!--区域单车数-->
+      <app-bicycle-area-num></app-bicycle-area-num>
+    </div>
+    <div class="right-top-inspection">
+      <!--单车巡检结果-->
+      <app-bicycle-inspection-result></app-bicycle-inspection-result>
+    </div>
+    <div class="right-center">
+      <!--单车平均使用率-->
+      <app-bicycle-average-utilization></app-bicycle-average-utilization>
+    </div>
+    <div class="right-bottom">
+      <!--单车周转率-->
+      <app-bicycle-turnover-rate></app-bicycle-turnover-rate>
+    </div>
+  </div>
+</div>

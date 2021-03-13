@@ -1,0 +1,26 @@
+<div id="violation-statistics-container">
+  <div class="header">
+    违规统计
+  </div>
+  <div class="table-content">
+    <div class="table-header">
+      <div>违规类型</div>
+      <div>总违规数</div>
+      <div>已处理违规数</div>
+    </div>
+    <div class="scroll-box" #scrollDiv (mouseenter)="onScrollDivMouseEnter()" (mouseleave)="onScrollDivMouseLeave()">
+      <div class="scroll-box-item" *ngFor="let dataItem of dataList"
+           [ngStyle]="{'background-color': dataItem.isOdd ? 'rgba(141, 184, 255, 0)':'rgba(141, 184, 255, 0.1)'}">
+        <div class="scroll-box-title">
+          {{dataItem.source.violationType}}
+        </div>
+        <div class="ellipsis" [title]="dataItem.source.road_name">
+          {{dataItem.source.violationNumbers}}
+        </div>
+        <div>
+          {{dataItem.source.processedViolation}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

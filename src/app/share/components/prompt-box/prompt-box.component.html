@@ -1,0 +1,18 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <span>提示</span>
+      <img src="assets/images/close.png" (click)="closed.next()">
+    </div>
+    <div class="modal-body">
+      <img *ngIf="imgStatus == 1" src="/assets/images/success.png">
+      <img *ngIf="imgStatus == 2" src="/assets/images/fail.png">
+      <img *ngIf="imgStatus == 3" src="/assets/images/warning.png">
+      <div>{{message}}</div>
+    </div>
+    <div class="modal-footer">
+      <button nz-button nzType="primary" type="submit" class="ant-btn ant-btn-primary" (click)="close()">确定
+      </button>
+    </div>
+  </div>
+</div>

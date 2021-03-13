@@ -1,0 +1,36 @@
+<div class="map-info-modal-container" *ngIf='district'>
+  <div class="title">各类资源占比</div>
+  <div class="content">
+    <div class="district-name">{{district.name}}</div>
+    <div class="info-line">
+      <div>路内车场数</div>
+      <div>
+        <div class="percent-block" style="background-color:rgba(0, 145, 255, 1)" [style]="{width:insideWidth + 'px'}">
+        </div>{{insideNumber}}
+      </div>
+    </div>
+    <div class="info-line">
+      <div>路外车场数</div>
+      <div>
+        <div class="percent-block" style="background-color:rgba(128, 82, 255, 1)" [style]="{width:outsideWidth + 'px'}">
+        </div>
+        {{outsideNumber}}
+      </div>
+    </div>
+    <div class="info-line">
+      <div>单车数</div>
+      <div>
+        <div class="percent-block" style="background-color:rgba(243, 108, 108, 1)"
+          [style]="{width:bicycleWidth + 'px'}">
+        </div>{{bicycleNumber}}
+      </div>
+    </div>
+    <div class="info-line">
+      <div>充电桩数量</div>
+      <div>
+        <div class="percent-block" style="background-color:rgba(90, 216, 166, 1)" [style]="{width:powerWidth + 'px'}">
+        </div>{{powerNumber}}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<div>
+  <div class="number-container" [ngStyle]="{'height':sHeight + 'px',
+  'line-height':sHeight + 'px','width':sWidth + 'px','font-size':sFontSize + 'px'}">
+    <div class="number-content" [ngClass]="{'number-animation':isActivateAnimation}"
+      [ngStyle]="{'margin-top': offsetY + 'px'}" #magicNumber>{{displayNumber}}</div>
+  </div>
+</div>

@@ -1,0 +1,69 @@
+#inspection-linkage-container {
+  height: 254px;
+  width: 457px;
+  //border: 1px solid red;
+  background: url(/assets/images/hotspot/linkage_bg.png) no-repeat center center;
+
+  .title {
+    height: 40px;
+    font-size: 22px;
+    font-family: Source Han Sans SC;
+    font-weight: bold;
+    color: #BFE8FF;
+    line-height: 22px;
+    display: flex;
+    align-items: flex-end;
+    padding-left: 26px;
+  }
+
+  .item-content {
+    width: 100%;
+    height: calc(100% - 40px);
+    padding: 17px 26px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+
+    & > div {
+      width: 188px;
+      height: 78px;
+      background: #002b65;
+      background: rgba(0, 43, 101, .6);
+      //opacity: 0.6;
+      border-left: 2px solid #1995DE;
+
+      .content-text {
+        height: 28px;
+        font-size: 14px;
+        font-family: Source Han Sans SC;
+        font-weight: 400;
+        color: #BFE8FF;
+        line-height: 18px;
+        padding: 14px 0px 0px 13px;
+
+      }
+
+      .content {
+        width: 100%;
+        font-family: electronicFont;
+        //font-size: 32px;
+        margin-top: 16px;
+        //line-height: 32px;
+        color: #FFFFFF;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+
+        & > span {
+          font-size: 14px;
+          font-family: Source Han Sans SC;
+          font-weight: bold;
+          color: #FFFFFF;
+          line-height: 28px;
+          margin-left: 8px;
+        }
+      }
+    }
+  }
+}

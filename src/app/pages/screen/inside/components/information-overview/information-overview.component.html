@@ -1,0 +1,49 @@
+<div class="information-container">
+  <div class="header">
+    信息概览
+  </div>
+  <div class="select">
+    <nz-select nzShowSearch nzAllowClear nzPlaceHolder="请输入车场名称" [nzShowArrow]="false" nzNotFoundContent="暂无数据"
+      [(ngModel)]="selectedParkingId" (nzScrollToBottom)="onScrollToBottom()" (ngModelChange)="onSelectParking($event)"
+      (nzOnSearch)="onSearchParking($event)">
+      <nz-option *ngFor="let parking of parkingList;" [nzLabel]="parking.parking_name" [nzValue]="parking.parking_id">
+      </nz-option>
+    </nz-select>
+  </div>
+  <ul class="content">
+    <li>
+      <span>今日订单量</span>
+      <div>
+        <app-magic-number [sHeight]="50" [sNumberWidth]="13" [sMaxLength]='5' [sFontSize]="24"
+          [sNumber]="toString(parkingData.order_num)">
+        </app-magic-number>
+      </div>
+    </li>
+    <li>
+      <span>停车时长</span>
+      <div>
+        <div>
+          <app-magic-number [sHeight]="50" [sNumberWidth]="13" [sMaxLength]='5' [sFontSize]="24"
+            [sNumber]="toString(parkingData.parking_time)">
+          </app-magic-number>
+        </div>
+      </div>
+    </li>
+    <li>
+      <span>当日注册用户数</span>
+      <div>
+        <app-magic-number [sHeight]="50" [sNumberWidth]="13" [sMaxLength]='5' [sFontSize]="24"
+          [sNumber]="toString(parkingData.today_register_users)">
+        </app-magic-number>
+      </div>
+    </li>
+    <li>
+      <span>总注册用户数</span>
+      <div>
+        <app-magic-number [sHeight]="50" [sNumberWidth]="13" [sMaxLength]='5' [sFontSize]="24"
+          [sNumber]="toString(parkingData.total_register_users)">
+        </app-magic-number>
+      </div>
+    </li>
+  </ul>
+</div>

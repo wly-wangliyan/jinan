@@ -1,0 +1,44 @@
+<div class="inside">
+  <div id="inside-map-container" class="inside-map-container">
+  </div>
+
+  <ul class="marker-type-container">
+    <li [class.active]="parkingFlag" (click)="onChangeParking()">停车场</li>
+    <li [class.active]="employeeFlag" (click)="onChangeEmployee()">收费员</li>
+  </ul>
+
+  <app-road-modal #roadModal></app-road-modal>
+
+  <div class="parking-type-container">
+    <app-parking-type></app-parking-type>
+  </div>
+
+  <div class="left-side">
+    <div class="inside-item">
+      <!-- 全市四类道路汇总信息   -->
+      <app-city-four-roads-summary></app-city-four-roads-summary>
+    </div>
+    <div class="inside-item">
+      <!-- 各区道路类型汇总信息   -->
+      <app-district-road-type-summary></app-district-road-type-summary>
+    </div>
+    <div class="inside-item">
+      <!-- 车场考核分数列表   -->
+      <app-parking-assessment-score-table></app-parking-assessment-score-table>
+    </div>
+  </div>
+  <div class="right-side">
+    <div class="inside-item">
+      <!-- 信息概览   -->
+      <app-information-overview></app-information-overview>
+    </div>
+    <div class="inside-item" style="margin-bottom: 32px;">
+      <!--  停车时长,欠费率 -->
+      <app-parking-hour-and-arrears-rate></app-parking-hour-and-arrears-rate>
+    </div>
+    <div class="inside-item">
+      <!--  车场周转率,车场利用率 -->
+      <app-parking-turnover-rate-and-utilization-rate></app-parking-turnover-rate-and-utilization-rate>
+    </div>
+  </div>
+</div>

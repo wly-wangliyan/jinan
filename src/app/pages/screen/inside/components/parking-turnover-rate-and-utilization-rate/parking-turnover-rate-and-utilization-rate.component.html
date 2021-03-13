@@ -1,0 +1,20 @@
+<div class="table-container">
+  <app-item-header [nameList]="['车场周转率','车场利用率']" (nameClick)="onNameChange($event)"></app-item-header>
+  <div class="table-content">
+    <div class="table-header">
+      <span>车场名称</span>
+      <span>{{currentIndex===0?'周转率':'利用率'}}</span>
+    </div>
+    <div class="scroll-box" #scrollDiv (mouseenter)="onScrollDivMouseEnter()" (mouseleave)="onScrollDivMouseLeave()">
+      <div class="scroll-box-item" *ngFor="let dataItem of dataList"
+           [ngStyle]="{'background-color': dataItem.isOdd ? 'rgba(141, 184, 255, 0)':'rgba(141, 184, 255, 0.1)'}">
+        <div class="scroll-box-title ellipsis">
+          {{dataItem.source.parking_name}}
+        </div>
+        <div [ngStyle]="{color:rateColor(dataItem.source)}">
+          {{currentIndex===0?dataItem.source.parking_turnover_rate:dataItem.source.parking_use_rate}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

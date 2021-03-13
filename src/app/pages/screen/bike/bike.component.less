@@ -1,0 +1,256 @@
+.page-mask {
+  background: url("/assets/bike-images/map_bg.png");
+  background-size: cover;
+  pointer-events: none;
+  position: absolute;
+  width: 1920px;
+  height: 1080px;
+}
+
+.page-container {
+  display: flex;
+  position: absolute;
+  width: 1920px;
+  height: 1080px;
+  pointer-events: none;
+}
+
+p {
+  margin: 0;
+}
+
+.bike-map-container {
+  width: 1920px;
+  height: 1080px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  //background: #06354a;
+  background: #020e39;
+}
+.container {
+  display: -webkit-flex; /* Safari */
+  display: flex;
+  flex-wrap: wrap;
+  background: rgba(4, 10, 34, 0.6);
+}
+
+.page-left {
+  width: 457px;
+  position: absolute;
+  top: 66px;
+  padding: 12px 0 0 12px;
+  -webkit-transition: all 2s;
+  transition: all 2s;
+  pointer-events: auto;
+
+  left: 0px;
+}
+
+.page-center {
+  position: absolute;
+  width: 1000px;
+  height: 1080px;
+  margin-left: 457px;
+  overflow: hidden;
+}
+
+.page-right {
+  position: absolute;
+  top: 66px;
+  left: 1452px;
+  padding: 12px 12px 0 0;
+  width: 456px;
+  pointer-events: auto;
+}
+
+.center-bottom {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  margin-top: -120px;
+  font-size: 16px;
+  //font-family: Source Han Sans SC;
+  font-weight: bold;
+  color: #bfe8ff;
+  width: 991px;
+  padding: 0 20px;
+}
+
+.left-top {
+  -webkit-transition: all 2s;
+  transition: all 2s;
+  width: inherit;
+  height: 205px;
+}
+
+.left-center {
+  -webkit-transition: all 2s;
+  transition: all 2s;
+  width: inherit;
+  height: 354px;
+  margin-top: 30px;
+}
+
+.left-bottom {
+  -webkit-transition: all 2s;
+  transition: all 2s;
+  width: inherit;
+  height: 360px;
+  margin-top: 30px;
+}
+
+.center-top {
+  height: 1010px;
+}
+
+.shareBike_l_t_body {
+  clear: both;
+  width: 457px;
+  height: 168px;
+  margin-top: -1px;
+  border: 1px solid #1b9eea;
+  position: relative;
+  background: rgba(4, 10, 34, 0.6);
+}
+
+.shareBike_l_c_body {
+  width: 457px;
+  height: 314px;
+  background: rgba(4, 10, 34, 0.6);
+  border: 1px solid #1995de;
+  margin-top: -1px;
+}
+
+.shareBike_l_b_body {
+  height: 320px;
+  overflow: hidden;
+  width: 456px;
+  position: relative;
+  border: 1px solid #1b9eea;
+  margin-top: -1px;
+  background: rgba(4, 10, 34, 0.6);
+}
+
+.shareBike_center_img {
+  position: absolute;
+  -webkit-pointer-events: none;
+  -moz-pointer-events: none;
+  -ms-pointer-events: none;
+  -o-pointer-events: none;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 995px;
+  height: 995px;
+  left: 3px;
+  top: 43px;
+  background-image: url(/assets/bike-images/shareBike_center_img.cacce.png);
+  background-size: 995px;
+  -webkit-animation: rotate 8s linear infinite;
+  animation: rotate 8s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(90deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+  }
+  75% {
+    -webkit-transform: rotate(270deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+.shareBike_r_b_body,
+.shareBike_r_c_body {
+  height: 230px;
+  position: relative;
+  width: 456px;
+  background: rgba(4, 10, 34, 0.6);
+  border: 1px solid rgba(27, 158, 234, 0.8);
+  margin-top: -1px;
+}
+
+.center-bottome-left,
+.center-bottome-right {
+  height: 264px;
+  width: 340px;
+}
+
+.right-top-area {
+  height: 142px;
+  width: 456px;
+  right: 13px;
+}
+
+.right-top-inspection {
+  right: 13px;
+  height: 208px;
+  width: 456px;
+  margin-top: 30px;
+}
+
+.right-center {
+  right: 13px;
+  width: 456px;
+  margin-top: 30px;
+}
+
+.right-bottom {
+  right: 12px;
+  width: 456px;
+  margin-top: 30px;
+}
+
+.chart-flow {
+  height: 100%;
+}
+
+.common-head {
+  line-height: 40px;
+
+  font-size: 22px;
+  //font-family: Source Han Sans SC;
+  font-weight: bold;
+  color: #bfe8ff;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.marker-type-container {
+  display: inline-block;
+  border: 1px solid #1995de;
+  border-radius: 5px;
+  overflow: hidden;
+  position: absolute;
+  top: 136px;
+  left: 1275px;
+
+  li {
+    display: inline-block;
+    width: 80px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    background: #00040c;
+    color: #fff;
+    cursor: pointer;
+    font-weight: normal;
+
+    &.active {
+      color: #32ffb4;
+    }
+
+    &:nth-of-type(1) {
+      border-right: 1px solid #828996;
+    }
+  }
+}

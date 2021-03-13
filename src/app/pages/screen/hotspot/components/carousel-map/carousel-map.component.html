@@ -1,0 +1,9 @@
+<div id="carousel-map-container">
+  <button class="left-btn" (click)="carousel.pre()"></button>
+  <button class="right-btn" (click)="carousel.next()"></button>
+  <nz-carousel #carousel [nzEffect]="effect" [nzDots]="true" [nzAutoPlay]="true">
+    <div nz-carousel-content *ngFor="let item of array;let index = index">
+      <img style="width: 100%;height: 100%" [src]=item>
+    </div>
+  </nz-carousel>
+</div>

@@ -1,0 +1,63 @@
+<section class="section1" #totalInfo>
+  <ul class="total-container">
+    <li (click)="onToggle()">
+      <img src="/assets/images/icon_outside_parking.png" alt="">
+      <span class="number">
+        <app-magic-number [sHeight]="50" [sNumberWidth]="20" [sMaxLength]='5' [sFontSize]="38"
+          [sNumber]="toString(parkingStaticInfo.total_parkings)"></app-magic-number>
+      </span>
+      <span>停车场总数</span>
+    </li>
+    <li>
+      <img src="/assets/images/icon_outside_other.png" alt="">
+      <span class="number">
+        <app-magic-number [sHeight]="50" [sNumberWidth]="20" [sMaxLength]='5' [sFontSize]="38"
+          [sNumber]="toString(parkingStaticInfo.total_parking_spots)"></app-magic-number>
+      </span>
+      <span>车位总数</span>
+    </li>
+    <li (click)="onToggle(true,1)">
+      <img src="/assets/images/icon_outside_other.png" alt="">
+      <span class="number">
+        <app-magic-number [sHeight]="50" [sNumberWidth]="20" [sMaxLength]='5' [sFontSize]="38"
+          [sNumber]="toString(parkingStaticInfo.alert_num)"></app-magic-number>
+      </span>
+      <span>离线预警</span>
+    </li>
+  </ul>
+
+  <!--  三区三圈停车场数量  -->
+  <div class="parking-count-container">
+    <div class="header">
+      三区三圈停车场数量
+    </div>
+    <div class="parking-count-content" echarts [options]="chartOptions" (chartInit)="onChartInit($event)">
+    </div>
+<!--    <div class="all" (click)="onChartClick(null)">全部</div>-->
+  </div>
+
+  <app-billing-type-proportion></app-billing-type-proportion>
+</section>
+<section class="section2" #detailInfo>
+  <!-- 停车场总数-->
+  <div class="parking-total-container">
+    <div class="header">停车场概况</div>
+    <div class="close" (click)="onToggle(false)"></div>
+    <ul class="table-title">
+      <li>停车场名称</li>
+      <li>车位数</li>
+      <li>停车场地址</li>
+    </ul>
+    <ul class="table-list" (scroll)="onScroll(scrollList)" #scrollList>
+      <li *ngFor="let parking of parkingList;">
+        <span>{{parking.parking_name}}</span>
+        <span>{{parking.parking_space_count}}</span>
+        <span>{{parking.district}}{{parking.address}}</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="section2" #offlineWarn>
+  <app-offline-warning (toggle)="onToggle(false,1)"></app-offline-warning>
+</section>

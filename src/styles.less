@@ -1,0 +1,278 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~ng-zorro-antd/ng-zorro-antd.less";
+@import "assets/less/content";
+@import "assets/less/search";
+@import "assets/less/table";
+@import "assets/less/modal";
+
+@select-dark-color: #01204d;
+@select-light-color: #1fb3ff;
+@select-border-color: rgba(25, 149, 222, 1);
+@font-face {
+  font-family: electronicFont;
+  src: url("/assets/font/DS-DIGIT-4.ttf");
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body,
+html {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  -moz-user-select: none; /*火狐*/
+  -webkit-user-select: none; /*webkit浏览器*/
+  -ms-user-select: none; /*IE10*/
+  -khtml-user-select: none; /*早期浏览器*/
+  user-select: none;
+  font-family: Source Han Sans SC;
+  // overflow: hidden;
+  color: #363f5e;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+.header {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  font-size: 22px;
+  //font-family: SourceHanSansSC-Bold, SourceHanSansSC;
+  font-weight: bold;
+  color: #bfe8ff;
+}
+
+.amap-maps {
+  //background: #06354a;
+  background: #020e39;
+}
+
+// 路内资源-信息窗体
+.inside-amap-content-window {
+  background: rgba(4, 10, 34, 0.9);
+  border: 1px solid rgba(25, 149, 222, 0.6);
+  position: relative;
+  width: 180px;
+  color: #32ffb4;
+  padding: 10px;
+
+  &:before,
+  &:after {
+    content: " ";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 16px solid transparent;
+    border-right: 16px solid transparent;
+    border-top: 22px solid rgba(4, 10, 34, 0.9);
+    bottom: -22px;
+    left: 72px;
+    z-index: 34;
+  }
+
+  &:after {
+    border-left: 18px solid transparent;
+    border-right: 18px solid transparent;
+    border-top: 24px solid rgba(25, 149, 222, 0.6);
+    bottom: -24px;
+    left: 70px;
+    z-index: 33;
+  }
+
+  .amap-content-window-row {
+    line-height: 18px;
+    word-wrap: break-word;
+    margin-bottom: 2px;
+    //height: 18px;
+
+    &.head, img {
+      display: block;
+      width: 32px;
+      height: 32px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #fbfbfb;
+      margin: 0 auto;
+      margin-bottom: 8px;
+    }
+
+    &.title {
+      font-size: 16px;
+      font-weight: bold;
+      padding-bottom: 10px;
+    }
+
+    &.center {
+      text-align: center;
+    }
+
+    &.bottom {
+      margin-bottom: 10px;
+    }
+
+    &.monitor {
+      width: 100px;
+      height: 30px;
+      padding-left: 35px;
+      border: 1px solid #1995DE;
+      border-radius: 15px;
+      color: #63B8E6;
+      line-height: 28px;
+      background: url("/assets/images/icon_monitor.png") 12px center no-repeat;
+      cursor: pointer;
+    }
+  }
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+/******* 修改nz-select式样 ********/
+.ant-select-selector {
+  background-color: @select-dark-color !important;
+  border: 1px solid @select-border-color !important;
+  border-radius: 5px !important;
+  color: @select-light-color !important;
+  height: 40px !important;
+}
+
+.ant-select {
+  width: 200px;
+}
+
+.ant-select-selection-search {
+  color: @select-light-color !important;
+  height: 40px;
+}
+
+.ant-select-selection-placeholder {
+  color: @select-light-color !important;
+  line-height: 40px !important;
+}
+
+.ant-select-selection-item {
+  color: @select-light-color !important;
+  line-height: 40px !important;
+}
+
+.ant-select-single:not(.ant-select-customize-input) .ant-select-selector .ant-select-selection-search-input {
+  height: 40px;
+}
+
+.ant-select-item-empty {
+  color: @select-light-color !important;
+}
+
+.ant-select-dropdown {
+  background-color: @select-dark-color !important;
+  border: 1px solid @select-border-color !important;
+  border-radius: 5px !important;
+  color: @select-light-color !important;
+  margin-top: 20px;
+  position: relative;
+  overflow: initial;
+}
+
+.ant-select-dropdown:before {
+  content: " ";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-bottom: 8px solid @select-dark-color;
+  top: -8px;
+  left: 32px;
+  z-index: 34;
+}
+
+.ant-select-dropdown:after {
+  content: " ";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 11px solid transparent;
+  border-right: 11px solid transparent;
+  border-bottom: 10px solid @select-light-color;
+  top: -10px;
+  left: 30px;
+  z-index: 33;
+}
+
+.ant-select-item {
+  color: @select-light-color !important;
+}
+
+.ant-select-item-option-active,
+.ant-select-item-option-selected {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.cdk-virtual-scroll-viewport::-webkit-scrollbar {
+  /*滚动条整体样式*/
+  width: 4px; /*高宽分别对应横竖滚动条的尺寸*/
+  // scrollbar-arrow-color: red;
+}
+
+.cdk-virtual-scroll-viewport::-webkit-scrollbar-thumb {
+  /*滚动条里面小方块*/
+  border-radius: 5px;
+  // -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  background: #1995de;
+  // scrollbar-arrow-color: red;
+}
+
+.cdk-virtual-scroll-viewport::-webkit-scrollbar-track {
+  /*滚动条里面轨道*/
+  // -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 0;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.anticon-down {
+  width: 12px;
+  height: 12px;
+  display: block;
+  background: url("/assets/images/icon_arrow_down.png");
+  transition: all 0.5s;
+
+  .svg {
+    display: none;
+  }
+}
+
+.ant-select-close-icon {
+  width: 12px;
+  height: 12px;
+  display: block;
+  background: url("/assets/images/icon_close.png");
+
+  .svg {
+    display: none;
+  }
+}
+
+.ant-select-clear {
+  background: @select-dark-color !important;
+}
+
+.nzSelectOpenState {
+  .anticon-down {
+    transform: rotate(180deg);
+  }
+}
+
+.ellipsis {
+  white-space: nowrap; /* 规定文本是否折行 */
+  overflow: hidden; /* 规定超出内容宽度的元素隐藏 */
+  text-overflow: ellipsis;
+}

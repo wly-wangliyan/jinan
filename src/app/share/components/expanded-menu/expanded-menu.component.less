@@ -1,0 +1,57 @@
+.ant-menu-item {
+  height: 60px;
+  line-height: 60px;
+  outline: none;
+  margin: 0px 0px !important;
+  padding-left: 60px !important;
+  font-size: 14px;
+  font-weight: normal;
+  color: #617F9C;
+
+
+  &::before {
+    content: '';
+    width: 24px;
+    height: 23px;
+    position: absolute;
+    top: 18px;
+    left: 20px;
+  }
+
+  &:first-child::before {
+    background: url("/assets/images/user/platform_icon_grey.png");
+  }
+
+  &:nth-child(2)::before {
+    background: url("/assets/images/user/system_icon_grey.png");
+  }
+
+}
+
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+
+  color: #258FF5;
+  background-color: rgba(#258FF5, 0.14);
+}
+
+.ant-menu-item-selected::after {
+  transform: scaleY(0.4);
+}
+
+.platform-active {
+
+
+  &::before {
+    background: url("/assets/images/user/platform_icon_blue.png") !important;
+  }
+}
+
+.system-active {
+
+
+  &::before {
+
+    background: url("/assets/images/user/system_icon_blue.png") !important;
+  }
+}
+

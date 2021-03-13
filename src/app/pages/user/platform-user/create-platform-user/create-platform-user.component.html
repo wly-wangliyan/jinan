@@ -1,0 +1,87 @@
+<div class="modal fade" data-keyboard="true" data-backdrop="static" tabindex="-1" #activityPromptDiv>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span>新建</span>
+        <img src="assets/images/close.png" data-dismiss="modal">
+      </div>
+
+        <div class="modal-body">
+          <form #appendForm="ngForm" autocomplete="off">
+            <div class="row">
+              <label class="control-label">
+                <b>*</b>
+                <span>用户名:</span>
+              </label>
+              <div class="control-input" >
+                <input class="form-control" placeholder="请输入6-20位，由字母、数字、下划线组成的用户名" [(ngModel)]="platformUser.username"
+                       name="name" maxlength="20" autocomplete="off" required [disabled]="platformUser.username">
+              </div>
+            </div>
+            <div class="input-tip" *ngIf="nameError">用户名由6-20位，字母、数字、下划线组成</div>
+            <div class="row" *ngIf="!platformUser.password">
+              <label class="control-label">
+                <b>&nbsp;&nbsp;*</b>
+                <span>密码:</span>
+              </label>
+              <div class="control-input">
+                <input class="form-control" placeholder="密码长度8-20位" [(ngModel)]="platformUser.password"
+                       name="password" maxlength="20" autocomplete="off" required>
+              </div>
+
+            </div>
+            <div class="input-tip" *ngIf="passwordError">密码要求8位以上字符，包含数字、大写字母、小写字母、特殊字符中的至少3种</div>
+            <div class="row">
+              <label class="control-label">
+                <b>&nbsp;&nbsp;*</b>
+                <span>姓名:</span>
+              </label>
+              <div class="control-input">
+                <input class="form-control" placeholder="请输入员工名称" [(ngModel)]="platformUser.realname"
+                       name="user_name" maxlength="20" autocomplete="off" required>
+              </div>
+            </div>
+            <div class="row">
+              <label class="control-label">
+                <b>*</b>
+                <span>手机号:</span>
+              </label>
+              <div class="control-input">
+                <input class="form-control" placeholder="请输入11位手机号码" [(ngModel)]="platformUser.telephone"
+                       name="telephone" maxlength="20" autocomplete="off" maxlength="11" required >
+              </div>
+            </div>
+            <div class="input-tip" *ngIf="telError">请输入11位正确手机号</div>
+            <div class="row">
+              <label class="control-label">
+                <b>&nbsp;&nbsp;*</b>
+                <span>角色:</span>
+              </label>
+              <div class="control-input">
+                <select name="role" required [(ngModel)]="platformUser.role" (change)="clearRole()">
+                  <option value="1">数据运维人员</option>
+                  <option value="2">游客</option>
+                </select>
+              </div>
+            </div>
+            <div class="row" *ngIf="platformUser.role == '1'">
+              <label class="control-label">
+                <b>&nbsp;&nbsp;*</b>
+                <span>权限:</span>
+              </label>
+              <div class="control-input">
+                <label *ngFor="let data of formatList;let i=index" name="format_{{i}}" nz-checkbox
+                       [(ngModel)]="data.isChecked" required [(ngModel)]="data.isChecked">{{data.name}} </label>
+              </div>
+            </div>
+          </form>
+        </div>
+
+      <div class="modal-footer">
+        <button nz-button nzType="primary" type="submit" class="ant-btn ant-btn-primary" [disabled]="!appendForm.form.valid || ifDisabled()" (click)="onSaveUser()">保存
+        </button>
+        <button nz-button nzType="default" class="cancel-ant-btn" data-dismiss="modal">取消</button>
+      </div>
+    </div>
+  </div>
+</div>

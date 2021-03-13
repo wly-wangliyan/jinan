@@ -1,0 +1,61 @@
+<div class="modal fade" data-keyboard="true" data-backdrop="static" tabindex="-1" #promptDiv>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span>修改密码</span>
+        <img src="assets/images/close.png" data-dismiss="modal">
+      </div>
+      <div class="modal-body">
+        <form autocomplete="off" class="form-horizontal" #registerForm="ngForm"
+              (submit)="onModifyPwdFormSubmit()">
+          <div class="row">
+            <label class="control-label">
+              <b>&nbsp;&nbsp;&nbsp;&nbsp;*</b>
+              <span>旧密码：</span>
+            </label>
+            <div class="control-input">
+              <input name="old_password" type="password" placeholder="请输入旧密码"
+                     minlength="6" maxlength="20" [(ngModel)]="originalPwd"
+                     autocomplete="new-password"
+                     class="form-control" required appIgnoreSpace>
+            </div>
+          </div>
+
+          <div class="row">
+            <label class="control-label">
+              <b>&nbsp;&nbsp;&nbsp;&nbsp;*</b>
+              <span>新密码：</span>
+            </label>
+            <div class="control-input">
+              <input name="new_password" type="password" placeholder="请输入6-20位新密码" autocomplete="new-password"
+                     minlength="6" maxlength="20" [(ngModel)]="newPwd"
+                     class="form-control" required appIgnoreSpace>
+            </div>
+          </div>
+
+          <div class="row">
+            <label class="control-label">
+              <b>*</b>
+              <span>确认新密码：</span>
+            </label>
+            <div class="control-input">
+              <input name="repeat_password" autocomplete="new-password" type="password" placeholder="再次确认新密码"
+                     [(ngModel)]="confirmNewPwd"
+                     minlength="6" maxlength="20" class="form-control"
+                     required appIgnoreSpace>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button nz-button nzType="primary" type="submit" class="ant-btn ant-btn-primary"
+                    [disabled]="!registerForm.form.valid">确定
+            </button>
+            <button nz-button nzType="default" class="cancel-ant-btn" data-dismiss="modal">取消</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- 修改密码模态框 -->
+

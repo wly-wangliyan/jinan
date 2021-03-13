@@ -1,0 +1,82 @@
+<div class="content-header">
+  <div class="header-left">
+    <img src="assets/images/user/circle.png">
+    <app-crumb [level1Name]="'平台用户'"></app-crumb>
+  </div>
+  <div class="header-right">
+    <img src="assets/images/user/creat_user.png">
+    <button class="header-button" (click)="onShowModal()">新建用户</button>
+  </div>
+</div>
+<div class="content-flow">
+  <div class="search-container">
+    <form class="search-form">
+      <div class="form-group">
+        <span>用户名：</span>
+        <input type="text" name="name" class="form-control" placeholder="请输入用户名" autocomplete="off">
+      </div>
+      <div class="form-group">
+        <span>姓名：</span>
+        <input type="text" name="name" class="form-control" placeholder="请输入姓名"
+               autocomplete="off" maxlength="50" autocomplete="off">
+      </div>
+      <div class="form-group">
+        <span>手机号：</span>
+        <input type="text" name="name" class="form-control" placeholder="请输入手机号" autocomplete="off">
+      </div>
+      <div class="form-group">
+        <span>角色：</span>
+        <select name="company_type"
+                (change)="onChangeCompanyTypeSearch($event)">
+          <option value="0">请选择</option>
+          <option value="1">超级管理员</option>
+          <option value="3">管理员</option>
+          <option value="6">数据运维人员</option>
+          <option value="6">普通用户</option>
+          <option value="6">政府机关用户</option>
+        </select>
+      </div>
+      <button nz-button nzType="primary" (click)="onSearchBtnClick()">
+        <img src="/assets/images/search.png">查询
+      </button>
+    </form>
+  </div>
+  <div class="common-table-container">
+    <div class="zmy-table">
+      <nz-table [nzData]="usersList" [nzShowPagination]="true" [nzNoResult]="noResultText"
+                [nzPageSize]="pageSize" (nzPageIndexChange)="onNZPageIndexChange($event)" [(nzPageIndex)]="pageIndex"
+                #basicTable nzBordered>
+        <thead>
+        <tr>
+          <th>序号</th>
+          <th>用户名</th>
+          <th>姓名</th>
+          <th>手机号</th>
+          <th>角色</th>
+          <th>创建时间</th>
+          <th class="middle-width-th">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let data of basicTable.data;let i = index">
+          <td>{{i + ( pageIndex - 1 ) * 10 + 1}}</td>
+          <td [title]='data.username'>{{data.username}}</td>
+          <td>{{data.realname}}</td>
+          <td>{{data.telephone}}</td>
+          <td [title]="data.role|userTypePipe">
+            {{data.role|userTypePipe |zMaxLength}}
+          </td>
+          <td>{{data.created_time}}</td>
+          <td class="operation">
+            <a (click)="onShowModal(data)" [title]="'编辑'">编辑</a>
+            <a [title]="'密码重置'" (click)="onResetPassword()">密码重置</a>
+            <a class="operation-delete" [title]="'删除'" (click)="onDeleteUser()">删除</a>
+          </td>
+        </tr>
+        </tbody>
+      </nz-table>
+    </div>
+  </div>
+</div>
+
+<app-create-platform-user #createPlatformUser></app-create-platform-user>

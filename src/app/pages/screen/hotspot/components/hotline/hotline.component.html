@@ -1,0 +1,18 @@
+<div id="hotline-container">
+  <div class="title">400热线</div>
+  <div class="complaint-content">
+    <div class="icon"></div>
+    <div class="number">
+      <app-magic-number [sHeight]="16" [sNumberWidth]="13" [sMaxLength]='5' [sFontSize]="24"
+                        [sNumber]="total_num">
+      </app-magic-number>
+      <span>起</span>
+    </div>
+    <div class="complaint-number">投诉量</div>
+  </div>
+  <div class="chart-container">
+    <div class="chartA" echarts [options]='option' (chartInit)="onChartInit($event)">
+    </div>
+  </div>
+</div>
+

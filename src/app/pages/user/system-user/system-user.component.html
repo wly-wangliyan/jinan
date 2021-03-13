@@ -1,0 +1,65 @@
+<div class="content-header">
+  <div class="header-left">
+    <img src="assets/images/user/circle.png">
+    <app-crumb [level1Name]="'系统用户'"></app-crumb>
+  </div>
+  <div class="header-right">
+    <img src="assets/images/user/creat_user.png">
+    <button class="header-button" (click)="onShowModal()">新建用户</button>
+  </div>
+</div>
+<div class="content-flow">
+  <div class="search-container">
+    <form class="search-form">
+      <div class="form-group">
+        <span>系统名称：</span>
+        <input type="text" name="name" class="form-control" placeholder="请输入系统名称" autocomplete="off">
+      </div>
+      <div class="form-group">
+        <span>联系电话：</span>
+        <input type="text" name="name" class="form-control" placeholder="请输入联系电话" autocomplete="off">
+      </div>
+      <button nz-button nzType="primary">
+        <img src="/assets/images/search.png">查询
+      </button>
+    </form>
+  </div>
+  <div class="common-table-container">
+    <div class="zmy-table">
+      <nz-table [nzData]="platformCouponList" [nzShowPagination]="true" [nzNoResult]="noResultText"
+                [nzPageSize]="pageSize" (nzPageIndexChange)="onNZPageIndexChange($event)" [(nzPageIndex)]="pageIndex"
+                #basicTable nzBordered>
+        <thead>
+        <tr>
+          <th>序号</th>
+          <th>企业名称</th>
+          <th>系统名称</th>
+          <th>联系电话</th>
+          <th>账号</th>
+          <th>秘钥</th>
+          <th>创建时间</th>
+          <th class="middle-width-th">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let data of basicTable.data;let i = index">
+          <td>{{i + ( pageIndex - 1 ) * 10 + 1}}</td>
+          <td [title]='data.name'>{{data.name|zPlaceholder|zMaxLength}}</td>
+          <td>{{data.coupon_type.name|zPlaceholder}}</td>
+          <td>{{data.reduce_amount|zPlaceholder}}</td>
+          <td [title]='data.issued_company.name'>{{data.issued_company.name|zPlaceholder|zMaxLength}}</td>
+          <td>{{data.getServiceName}}</td>
+          <td>{{data.getServiceName}}</td>
+          <td class="operation">
+            <a [title]="'编辑'" >编辑</a>
+            <a [title]="'删除'" (click)="onDeleteUser()">删除</a>
+            <a [title]="'停用'" (click)="onStopUser()">停用</a>
+            <a class="operation-delete" [title]="'重置秘钥'" (click)="onResetSecretKey()"> 重置秘钥</a>
+          </td>
+        </tr>
+        </tbody>
+      </nz-table>
+    </div>
+  </div>
+</div>
+<app-create-system-user #createSystemUser></app-create-system-user>

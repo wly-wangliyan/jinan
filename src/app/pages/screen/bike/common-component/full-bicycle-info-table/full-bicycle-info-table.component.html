@@ -1,0 +1,43 @@
+<div class="bicycle-info-table-content" [ngStyle]="{'text-align': textAlign}">
+  <div class="count-table">
+    <div class="table-total-item">
+      <div class="table-total-title">
+        {{title}}
+      </div>
+      <div class="table-total-number" [ngStyle]="{'float': textAlign=='end'?'right':'left'}">
+        <app-magic-number [sHeight]="50" [sNumberWidth]="25" [sMaxLength]='5' [sFontSize]="48" [sNumber]='total_num'
+          [sJustifyContent]='textAlign'>
+        </app-magic-number>
+      </div>
+    </div>
+  </div>
+  <div class="table-detail-wrap" [ngStyle]="{'float': textAlign=='end'?'right':'left'}">
+    <table>
+      <thead>
+        <tr>
+          <th *ngFor="let item of dataList;let index=index" class="center-bottom-left-sub"
+            [ngStyle]="{'text-align': textAlign}">
+            <span>{{item.company_type|fullCompanyType}}</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td *ngFor="let data of dataList" class="center-bottom-left-sub-num" [ngStyle]="{'text-align': 'center'}">
+            <ng-container *ngIf="templateType==='order'">
+              <app-magic-number [sHeight]="50" [sNumberWidth]="15" [sMaxLength]='5' [sFontSize]="28"
+                [sNumber]='data.order_count' [sJustifyContent]='textAlign'>
+              </app-magic-number>
+            </ng-container>
+            <ng-container *ngIf="templateType=='travel'">
+              <app-magic-number [sHeight]="50" [sNumberWidth]="15" [sMaxLength]='5' [sFontSize]="28"
+                [sNumber]='data.travel_count' [sJustifyContent]='textAlign'>
+              </app-magic-number>
+            </ng-container>
+            <!-- {{templateType==='order'?(data.order_count||0):(data.travel_count||0)}} -->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

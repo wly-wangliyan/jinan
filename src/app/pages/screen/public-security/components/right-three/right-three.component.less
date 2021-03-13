@@ -1,0 +1,44 @@
+.main-container {
+  width: 455px;
+  display: flex;
+  justify-content: space-between;
+
+  li {
+    width: 222px;
+    height: 186px;
+    padding: 20px;
+    background: url(/assets/images/bg_item3.png) no-repeat;
+    background-size: contain;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .icon {
+      width: 82px;
+      height: 90px;
+
+      &.icon1 {
+        background: url(/assets/images/icon_security1.png) no-repeat;
+        background-size: contain;
+      }
+
+      &.icon2 {
+        background: url(/assets/images/icon_security2.png) no-repeat;
+        background-size: contain;
+      }
+    }
+
+    .content {
+      padding-left: 10px;
+      font-size: 14px;
+      color: #BFE8FF;
+      font-weight: bold;
+      text-align: center;
+
+      .count {
+        font-family: electronicFont;
+        color: #FFFFFF;
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+<div class="billing-container">
+  <div class="header">
+    计费类型占比
+  </div>
+  <div class="billing-content">
+    <div class="billing-chart" echarts [options]="chartOptions" (chartInit)="onChartInit($event)"></div>
+    <ul class="billing-list">
+      <li *ngFor="let data of dataList;">
+        <span>{{data.name}}车场数量</span>
+        <app-magic-number [sHeight]="36" [sNumberWidth]="13" [sMaxLength]='5' [sFontSize]="24"
+          [sNumber]="data.value ? data.value + '':'0'">
+        </app-magic-number>
+      </li>
+    </ul>
+  </div>
+</div>

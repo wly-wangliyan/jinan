@@ -1,0 +1,21 @@
+<div class="left-one-container">
+  <div class="table-header">
+    <div>区名</div>
+    <div>街道名称</div>
+    <div>交通拥堵指数</div>
+  </div>
+  <div class="scroll-box" #scrollDiv (mouseenter)="onScrollDivMouseEnter()" (mouseleave)="onScrollDivMouseLeave()">
+    <div class="scroll-box-item" *ngFor="let dataItem of dataList"
+      [ngStyle]="{'background-color': dataItem.isOdd ? 'rgba(141, 184, 255, 0)':'rgba(141, 184, 255, 0.1)'}">
+      <div class="scroll-box-title">
+        {{dataItem.source.district}}
+      </div>
+      <div class="ellipsis" [title]="dataItem.source.road_name">
+        {{dataItem.source.road_name}}
+      </div>
+      <div>
+        {{dataItem.source.traffic_jam_rate}}
+      </div>
+    </div>
+  </div>
+</div>

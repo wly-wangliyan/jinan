@@ -1,0 +1,29 @@
+<div class="parking-total-container" #offlineWarnModal>
+  <div class="header">车场离线预警</div>
+  <div class="close" (click)="onClose()"></div>
+  <div class="table-header">
+    <div class="select">
+      <nz-select [ngClass]="{nzSelectOpenState: mySelect.isZOpen}" nzPlaceHolder="选择辖区" [(ngModel)]="searchParams.code"
+        (nzOpenChange)='mySelect.isZOpen = $event;' #mySelect>
+        <nz-option nzValue="" nzLabel="选择辖区"></nz-option>
+        <nz-option *ngFor="let option of districts" [nzValue]="option.adcode+''" [nzLabel]="option.NAME_CHN">
+        </nz-option>
+      </nz-select>
+    </div>
+    <button (click)="requestData()">搜索</button>
+    <button (click)="onClearClick()">清除</button>
+    <div class="offline-count">离线总数：{{dataList.length}}</div>
+  </div>
+  <ul class="table-title">
+    <li>区域名称</li>
+    <li>停车场名称</li>
+    <li>设备中断时间</li>
+  </ul>
+  <ul class="table-list">
+    <li *ngFor="let data of dataList;">
+      <span>{{data.district}}</span>
+      <span>{{data.parking_name}}</span>
+      <span>{{data.offline_time*1000|date:'yyyy-MM-dd HH:mm'}}</span>
+    </li>
+  </ul>
+</div>
