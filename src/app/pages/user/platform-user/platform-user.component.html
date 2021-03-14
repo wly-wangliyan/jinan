@@ -69,8 +69,8 @@
           <td>{{data.created_time}}</td>
           <td class="operation">
             <a (click)="onShowModal(data)" [title]="'编辑'">编辑</a>
-            <a [title]="'密码重置'" (click)="onResetPassword()">密码重置</a>
-            <a class="operation-delete" [title]="'删除'" (click)="onDeleteUser()">删除</a>
+            <a [title]="'密码重置'" (click)="onResetPassword(data)">密码重置</a>
+            <a class="operation-delete" [title]="'删除'" (click)="onDeleteUser(data)">删除</a>
           </td>
         </tr>
         </tbody>

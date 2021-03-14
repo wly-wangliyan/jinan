@@ -38,3 +38,22 @@ export class UserTypePipe implements PipeTransform {
     }
   }
 }
+
+const stopTypeObj = {
+  '1': '停用',
+  '2': '启用',
+};
+
+@Pipe({
+  name: 'stopTypePipe'
+})
+export class StopTypePipe implements PipeTransform {
+
+  public transform(value: any, args?: any): any {
+    if (value === null || value === undefined) {
+      return '--';
+    }else{
+      return stopTypeObj[String(value)];
+    }
+  }
+}

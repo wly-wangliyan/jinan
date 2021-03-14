@@ -64,21 +64,7 @@ export class CreatePlatformUserComponent implements OnInit {
     openBrandModal();
   }
 
-  // 提交表单
-  // public submit() {
-  //   if (this.generateAndCheckParamsValid()) {
-  //     if (this.currentActivity.display_type < 3) {
-  //       this.coverImgSelectComponent.upload().subscribe(res => {
-  //         this.currentActivity.content = this.coverImgSelectComponent.imageList.map(image => image.sourceUrl).join(',');
-  //         this.requestActivityData();
-  //       });
-  //     } else {
-  //       this.requestActivityData();
-  //     }
-  //   }
-  // }
-
-  // 请求创建、编辑活动
+  // 请求创建平台用户
   private requestActivityData() {
     const successFunc = () => {
       $(this.activityPromptDiv.nativeElement).modal('hide');

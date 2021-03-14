@@ -22,7 +22,7 @@ import {NzCheckboxModule} from 'ng-zorro-antd/checkbox';
 import {IgnoreSpaceDirective} from './directives/ignore-space.directive';
 import {Http500PageComponent} from './components/http-500-page/http-500-page.component';
 import {Http403PageComponent} from './components/http-403-page/http-403-page.component';
-import {UserTypePipe} from "./pipes/user-type.pipe";
+import {StopTypePipe, UserTypePipe} from "./pipes/user-type.pipe";
 
 
 @NgModule({
@@ -55,7 +55,8 @@ import {UserTypePipe} from "./pipes/user-type.pipe";
     IgnoreSpaceDirective,
 
     ZPlaceholderPipe,
-    UserTypePipe
+    UserTypePipe,
+    StopTypePipe
   ],
   exports: [
     CommonModule,
@@ -83,7 +84,8 @@ import {UserTypePipe} from "./pipes/user-type.pipe";
     IgnoreSpaceDirective,
 
     ZPlaceholderPipe,
-    UserTypePipe
+    UserTypePipe,
+    StopTypePipe
   ],
 })
 export class ShareModule {

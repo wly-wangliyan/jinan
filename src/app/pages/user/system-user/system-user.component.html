@@ -19,14 +19,14 @@
         <span>联系电话：</span>
         <input type="text" name="name" class="form-control" placeholder="请输入联系电话" autocomplete="off">
       </div>
-      <button nz-button nzType="primary">
+      <button nz-button nzType="primary" (click)="onSearchBtnClick()">
         <img src="/assets/images/search.png">查询
       </button>
     </form>
   </div>
   <div class="common-table-container">
     <div class="zmy-table">
-      <nz-table [nzData]="platformCouponList" [nzShowPagination]="true" [nzNoResult]="noResultText"
+      <nz-table [nzData]="usersList" [nzShowPagination]="true" [nzNoResult]="noResultText"
                 [nzPageSize]="pageSize" (nzPageIndexChange)="onNZPageIndexChange($event)" [(nzPageIndex)]="pageIndex"
                 #basicTable nzBordered>
         <thead>
@@ -44,16 +44,16 @@
         <tbody>
         <tr *ngFor="let data of basicTable.data;let i = index">
           <td>{{i + ( pageIndex - 1 ) * 10 + 1}}</td>
-          <td [title]='data.name'>{{data.name|zPlaceholder|zMaxLength}}</td>
-          <td>{{data.coupon_type.name|zPlaceholder}}</td>
-          <td>{{data.reduce_amount|zPlaceholder}}</td>
-          <td [title]='data.issued_company.name'>{{data.issued_company.name|zPlaceholder|zMaxLength}}</td>
+          <td [title]='data.company_name'>{{data.company_name|zPlaceholder}}</td>
+          <td>{{data.system_name|zPlaceholder}}</td>
+          <td>{{data.telephone_number|zPlaceholder}}</td>
+          <td [title]='data.telephone_number'>{{data.telephone_number|zPlaceholder}}</td>
           <td>{{data.getServiceName}}</td>
           <td>{{data.getServiceName}}</td>
           <td class="operation">
-            <a [title]="'编辑'" >编辑</a>
+            <a [title]="'编辑'" (click)="onShowModal(data)">编辑</a>
             <a [title]="'删除'" (click)="onDeleteUser()">删除</a>
-            <a [title]="'停用'" (click)="onStopUser()">停用</a>
+            <a [title]="'停用'" (click)="onStopUser()">{{data.stopStatus|stopTypePipe}}</a>
             <a class="operation-delete" [title]="'重置秘钥'" (click)="onResetSecretKey()"> 重置秘钥</a>
           </td>
         </tr>

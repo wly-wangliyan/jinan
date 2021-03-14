@@ -3,8 +3,8 @@ import {GlobalService} from '../../../core/global.service';
 import {FormBoxComponent} from '../../../share/components/form-box/form-box.component';
 import {ElementService} from '../../../core/element.service';
 import {CreatePlatformUserComponent} from './create-platform-user/create-platform-user.component';
-import {Subject, timer} from "rxjs";
-import {UserEntity} from "../../../core/auth.service";
+import {Subject, timer} from 'rxjs';
+import {UserEntity} from '../../../core/auth.service';
 import {debounceTime} from "rxjs/internal/operators";
 import {switchMap} from "rxjs/operators";
 import {PlatformUserEntity, SearchEmployeeParams, UserService} from "../user.service";
@@ -20,46 +20,6 @@ const PageSize = 10;
 export class PlatformUserComponent implements OnInit {
 
   @ViewChild('createPlatformUser', {static: false}) public createPlatformUser: CreatePlatformUserComponent;
-
-  public platformCouponList = [{
-    name: 'hello', coupon_type: 'hello1', reduce_amount: '22', issued_company: 'beauty',
-    getServiceName: 'wang'
-  }, {
-    name: 'hello', coupon_type: 'hello1', reduce_amount: '22', issued_company: 'beauty',
-    getServiceName: 'wang'
-  }, {
-    name: 'hello', coupon_type: 'hello1', reduce_amount: '22', issued_company: 'beauty',
-    getServiceName: 'wang'
-  }, {
-    name: 'hello', coupon_type: 'hello1', reduce_amount: '22', issued_company: 'beauty',
-    getServiceName: 'wang'
-  }, {
-    name: 'hello', coupon_type: 'hello1', reduce_amount: '22', issued_company: 'beauty',
-    getServiceName: 'wang'
-  }, {
-    name: 'hello', coupon_type: 'hello1', reduce_amount: '22', issued_company: 'beauty',
-    getServiceName: 'wang'
-  }, {
-    name: 'hello', coupon_type: 'hello1', reduce_amount: '22', issued_company: 'beauty',
-    getServiceName: 'wang'
-  }, {
-    name: 'hello', coupon_type: 'hello1', reduce_amount: '22', issued_company: 'beauty',
-    getServiceName: 'wang'
-  }
-    , {
-      name: 'hello', coupon_type: 'hello1', reduce_amount: '22', issued_company: 'beauty',
-      getServiceName: 'wang'
-    }, {
-      name: 'hello', coupon_type: 'hello1', reduce_amount: '22', issued_company: 'beauty',
-      getServiceName: 'wang'
-    }, {
-      name: 'hello', coupon_type: 'hello1', reduce_amount: '22', issued_company: 'beauty',
-      getServiceName: 'wang'
-    }, {
-      name: 'hello', coupon_type: 'hello1', reduce_amount: '22', issued_company: 'beauty',
-      getServiceName: 'wang'
-    }
-  ];
 
   public usersList: Array<UserEntity> = [];
   private searchText$ = new Subject<any>();
@@ -150,18 +110,16 @@ export class PlatformUserComponent implements OnInit {
   }
 
   // 重置密码
-  public onResetPassword() {
+  public onResetPassword(dataItem: UserEntity) {
     this.promptService.showConfirmBox('请确认是否要重置密码？', '密码重置', () => {
-      console.log('888');
+      this.userService.requestResetPassword(dataItem.username).subscribe(() => {
+        this.promptService.showPromptBox(' 密码重置成功，新密码已下发到员工邮箱！');
+      }, err => {
+        this.globalService.httpErrorProcess(err);
+      });
+      // console.log('888');
     });
   }
-
-  // 删除用户
-  // public onDeleteUser() {
-  //   this.promptService.showConfirmBox('是否确定删除用户xx？', '删除用户', () => {
-  //     console.log('888');
-  //   });
-  // }
 
   // 停用用户
   public onStopUser() {
