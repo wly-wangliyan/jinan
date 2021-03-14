@@ -3,16 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e12ae7b8-22fc-4554-9ddb-4a00c4c50f18" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/user/platform-user/create-platform-user/create-platform-user.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/user/platform-user/create-platform-user/create-platform-user.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/user/platform-user/create-platform-user/create-platform-user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/user/platform-user/create-platform-user/create-platform-user.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/user/platform-user/platform-user.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/user/platform-user/platform-user.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/user/platform-user/platform-user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/user/platform-user/platform-user.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/pages/user/system-user/create-system-user/create-system-user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/user/system-user/create-system-user/create-system-user.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/pages/user/system-user/system-user.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/user/system-user/system-user.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/pages/user/system-user/system-user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/user/system-user/system-user.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/pages/user/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/user/user.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/share/pipes/user-type.pipe.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/share/pipes/user-type.pipe.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/share/share.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/share/share.module.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,6 +84,7 @@
       <workItem from="1615683886912" duration="502000" />
       <workItem from="1615684530378" duration="1160000" />
       <workItem from="1615685724326" duration="4448000" />
+      <workItem from="1615702314285" duration="2164000" />
     </task>
     <servers />
   </component>

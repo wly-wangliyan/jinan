@@ -99,16 +99,25 @@ export class SystemUserComponent implements OnInit {
     });
   }
 
-  // 删除用户
-  public onStopUser() {
+  // 停用用户
+  public onStopUser(data) {
+    const param = {discontinue_use: true};
     this.promptService.showConfirmBox('请确认是否停用用户XX？', '停用用户', () => {
       console.log('888');
     }, '停用');
+    const message = data.stopStatus ? '停用' : '启用';
+    this.promptService.showConfirmBox(`确定要${message}该保险公司吗？`, '提示', () => {
+      this.userService.requestUseInsurance(data.ic_id, data).subscribe((e) => {
+        this.searchText$.next();
+      }, err => {
+        this.globalService.httpErrorProcess(err);
+      });
+    });
   }
 
   // 重置秘钥
-  public onResetSecretKey() {
-    this.promptService.showConfirmBox('请确认是否重置用户XX的秘钥？', '重置秘钥', () => {
+  public onResetSecretKey(data) {
+    this.promptService.showConfirmBox(`请确认是否要重置${data.company_name}的密钥？`, '重置秘钥', () => {
       console.log('888');
     }, '重置秘钥');
   }

@@ -53,8 +53,8 @@
           <td class="operation">
             <a [title]="'编辑'" (click)="onShowModal(data)">编辑</a>
             <a [title]="'删除'" (click)="onDeleteUser()">删除</a>
-            <a [title]="'停用'" (click)="onStopUser()">{{data.stopStatus|stopTypePipe}}</a>
-            <a class="operation-delete" [title]="'重置秘钥'" (click)="onResetSecretKey()"> 重置秘钥</a>
+            <a [title]="'停用'" (click)="onStopUser(data)">{{data.stopStatus|stopTypePipe}}</a>
+            <a class="operation-delete" [title]="'重置秘钥'" (click)="onResetSecretKey(data)"> 重置秘钥</a>
           </td>
         </tr>
         </tbody>

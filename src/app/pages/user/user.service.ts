@@ -184,4 +184,14 @@ export class UserService {
   public requestResetPassword(username: string): Observable<HttpResponse<any>> {
     return this.httpService.put(environment.PARKING_DOMAIN + '/users/' + username + '/password/reset');
   }
+
+  /**
+   * 停用、启用
+   * @param menu_id 参数
+   * @returns Observable<HttpResponse<any>>
+   */
+  public requestUseInsurance(ic_id: string, params: any): Observable<HttpResponse<any>> {
+    return this.httpService.patch(environment.PARKING_DOMAIN +
+        `/admin/insurance/${ic_id}`, params);
+  }
 }
