@@ -17,6 +17,7 @@ export class MainComponent implements OnInit, AfterViewInit {
 
   constructor(private globalService: GlobalService, injector: Injector, public elementService: ElementService) {
 
+    // 注册提示框自定义元素
     const PromptElement = createCustomElement(PromptBoxComponent, {injector});
     customElements.define('prompt-element', PromptElement);
 

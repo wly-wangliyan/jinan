@@ -15,7 +15,7 @@ export class UserComponent implements OnInit {
   @ViewChild('buttonGroup') public buttonGroup: ElementRef;
   @ViewChild(FormBoxComponent) public formBox: FormBoxComponent;
   @ViewChild('routerDiv') public routerDiv: ElementRef;
-  public operationStatus = false;
+  public operationStatus = false; // 是否显示修改密码容器
   public userName = 'admin01';
 
 
@@ -29,7 +29,7 @@ export class UserComponent implements OnInit {
 
   }
 
-  // 点击显示/隐藏修改密码容器
+  // 点击显示或隐藏修改密码容器
   public onClickChangeStatus(): void {
     this.operationStatus = !this.operationStatus;
   }
@@ -46,6 +46,7 @@ export class UserComponent implements OnInit {
     });
   }
 
+  // 退出登录
   public logout() {
     this.elementService.showConfirmBox('是否退出系统？', '提示', () => {
       this.authService.logout();

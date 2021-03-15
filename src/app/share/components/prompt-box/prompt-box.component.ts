@@ -25,7 +25,6 @@ export class PromptBoxComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    console.log(1);
     this.delaySubscription = timer(2000).subscribe(() => {
       this.closed.next();
       if (this.callback) {

@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {EntityBase} from '../../utils/z-entity';
-import {HttpService} from "./http.service";
-import {Router} from "@angular/router";
-import {environment} from "../../environments/environment";
-import {GlobalConst} from "../share/global-const";
+import {HttpService} from './http.service';
+import {Router} from '@angular/router';
+import {environment} from '../../environments/environment';
+import {GlobalConst} from '../share/global-const';
 
 // 权限管理
 export class MerchantPermissionEntity extends EntityBase {
@@ -29,29 +29,6 @@ export class CarlinePermissionsEntity extends EntityBase {
   }
 }
 
-// 用户信息
-export class MerchantUserEntity extends EntityBase {
-  public merchant_user_id: string = undefined; // string 	主键
-  public username: string = undefined; // string	用户账号主键
-  public realname: string = undefined; // string; 员工姓名; / 真实姓名;
-  public telephone: string = undefined; //  string; 手机号;
-  public company_id: string = undefined; // 企业ID
-  public compony_name: string = undefined; // 企业名称
-  public updated_time: number; // float; 更新时间;
-  public created_time: number; // float; 创建时间;
-  public carline_permissions: Array<CarlinePermissionsEntity> = []; // Object;
-  public is_active = false; // boolean True: 可用; False: 已删除;
-  public mer_employee_management = false; // boolean True: 可用; False: 已删除;
-  public is_super = false; // boolean True: 可用; False: 已删除;
-
-  public getPropertyClass(propertyName: string): typeof EntityBase {
-    if (propertyName === 'carline_permissions') {
-      return CarlinePermissionsEntity;
-    }
-    return null;
-  }
-}
-
 export class UserPermissionGroupEntity extends EntityBase {
   public permission_group_id: string = undefined; // string	T	权限组id
   public english_name: string = undefined; // string	T	权限组名称(英文)
@@ -62,26 +39,34 @@ export class UserPermissionGroupEntity extends EntityBase {
 }
 
 export class UserEntity extends EntityBase {
-  public role: string = undefined; // 角色 1:平台用户 2: 系统厂商 3: 物业公司
+  public role_type = 1; // 角色类型 1:超级管理员 2：管理员3：数据运维人员4：普通用户 5：政府机关用户
   public username: string = undefined; // String	员工id
   public realname: string = undefined; // String	姓名
-  public password: string = undefined; // String	姓名
+  public password: string = undefined; // String	密码
   public telephone: string = undefined; // Array	联系方式
-  public email: string = undefined; // String	邮箱
-  public permission_groups: Array<UserPermissionGroupEntity> = undefined; // Array	权限组
-  public department: string = undefined; // String	部门
-  public remarks: string = undefined; // String	备注
-  public updated_time: number = undefined; // Float	更新时间
+  public permission_ids: Array<number> = []; // Array	权限组
   public created_time: number = undefined; // Float	创建时间
-  public is_superuser: boolean = undefined; // 是否为管理员
-  public show_terminal: string = ''; // 1小程序 2APP
 
-  public getPropertyClass(propertyName: string): typeof EntityBase {
-    if (propertyName === 'permission_groups') {
-      return UserPermissionGroupEntity;
-    }
-    return null;
+  public toAddJson(): any {
+    const json = this.json();
+    delete json.created_time;
+    return json;
   }
+
+  public toEditJson(): any {
+    const json = this.json();
+    delete json.created_time;
+    delete json.password;
+    delete json.username;
+    return json;
+  }
+
+  // public getPropertyClass(propertyName: string): typeof EntityBase {
+  //   if (propertyName === 'permission_ids') {
+  //     return UserPermissionGroupEntity;
+  //   }
+  //   return null;
+  // }
 }
 
 @Injectable({
@@ -167,8 +152,8 @@ export class AuthService {
     //   this._user = null;
     //   this.router.navigateByUrl(GlobalConst.LoginPath);
     // });
-      this._isLoggedIn = false;
-      this._user = null;
-      this.router.navigateByUrl(GlobalConst.LoginPath);
+    this._isLoggedIn = false;
+    this._user = null;
+    this.router.navigateByUrl(GlobalConst.LoginPath);
   }
 }

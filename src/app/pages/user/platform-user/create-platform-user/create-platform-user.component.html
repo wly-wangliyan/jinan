@@ -15,18 +15,18 @@
               </label>
               <div class="control-input" >
                 <input class="form-control" placeholder="请输入6-20位，由字母、数字、下划线组成的用户名" [(ngModel)]="platformUser.username"
-                       name="name" maxlength="20" autocomplete="off" required [disabled]="platformUser.username">
+                       name="name" maxlength="20" appIgnoreSpace autocomplete="off" required [disabled]="platformUser.created_time">
               </div>
             </div>
             <div class="input-tip" *ngIf="nameError">用户名由6-20位，字母、数字、下划线组成</div>
-            <div class="row" *ngIf="!platformUser.password">
+            <div class="row" *ngIf="!platformUser.created_time">
               <label class="control-label">
                 <b>&nbsp;&nbsp;*</b>
                 <span>密码:</span>
               </label>
               <div class="control-input">
                 <input class="form-control" placeholder="密码长度8-20位" [(ngModel)]="platformUser.password"
-                       name="password" maxlength="20" autocomplete="off" required>
+                       name="password" appIgnoreSpace maxlength="20" autocomplete="off" required>
               </div>
 
             </div>
@@ -38,7 +38,7 @@
               </label>
               <div class="control-input">
                 <input class="form-control" placeholder="请输入员工名称" [(ngModel)]="platformUser.realname"
-                       name="user_name" maxlength="20" autocomplete="off" required>
+                       name="user_name" appIgnoreSpace maxlength="20" autocomplete="off" required>
               </div>
             </div>
             <div class="row">
@@ -48,7 +48,7 @@
               </label>
               <div class="control-input">
                 <input class="form-control" placeholder="请输入11位手机号码" [(ngModel)]="platformUser.telephone"
-                       name="telephone" maxlength="20" autocomplete="off" maxlength="11" required >
+                       name="telephone" appIgnoreSpace maxlength="20" autocomplete="off" maxlength="11" required >
               </div>
             </div>
             <div class="input-tip" *ngIf="telError">请输入11位正确手机号</div>
@@ -58,20 +58,23 @@
                 <span>角色:</span>
               </label>
               <div class="control-input">
-                <select name="role" required [(ngModel)]="platformUser.role" (change)="clearRole()">
-                  <option value="1">数据运维人员</option>
-                  <option value="2">游客</option>
+                <select name="role" required [(ngModel)]="platformUser.role_type" (change)="clearRole()">
+                  <option value="1">超级管理员</option>
+                  <option value="2">管理员</option>
+                  <option value="3">数据运维人员</option>
+                  <option value="4">普通用户</option>
+                  <option value="5">政府机关用户</option>
                 </select>
               </div>
             </div>
-            <div class="row" *ngIf="platformUser.role == '1'">
+            <div class="row" >
               <label class="control-label">
                 <b>&nbsp;&nbsp;*</b>
                 <span>权限:</span>
               </label>
               <div class="control-input">
                 <label *ngFor="let data of formatList;let i=index" name="format_{{i}}" nz-checkbox
-                       [(ngModel)]="data.isChecked" required [(ngModel)]="data.isChecked">{{data.name}} </label>
+                       [(ngModel)]="data.isChecked" required>{{data.name}} </label>
               </div>
             </div>
           </form>

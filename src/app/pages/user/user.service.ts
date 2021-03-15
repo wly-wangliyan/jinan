@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
 import {EntityBase} from '../../../utils/z-entity';
-import {HttpService, LinkResponse} from "../../core/http.service";
-import {UserEntity} from "../../core/auth.service";
-import {Observable, of} from "rxjs";
-import {environment} from "../../../environments/environment";
-import {map} from "rxjs/internal/operators";
-import {HttpResponse} from "@angular/common/http";
+import {HttpService, LinkResponse} from '../../core/http.service';
+import {UserEntity} from '../../core/auth.service';
+import {Observable, of} from 'rxjs';
+import {environment} from '../../../environments/environment';
+import {map} from 'rxjs/internal/operators';
+import {HttpResponse} from '@angular/common/http';
 
 export class SystemUserEntity extends EntityBase {
   public company_name: string = undefined; // 	string 活动配置ID
@@ -42,7 +42,7 @@ export class SearchEmployeeParams extends EntityBase {
   public username: string = undefined; // String	F	用户名
   public realname: string = undefined; // String F	姓名
   public telephone: string = undefined; // String	F	联系电话
-  public role = '1'; // 	Integer	落地页类型(1H5 2原生页 3第三方小程序 4客服)
+  public role_type = ''; // 	Integer	角色类型 1:超级管理员 2：管理员3：数据运维人员4：普通用户 5：政府机关用户
 }
 
 export class SearchSystemParams extends EntityBase {
@@ -63,7 +63,6 @@ export class UserLinkResponse extends LinkResponse {
 }
 
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -79,16 +78,17 @@ export class UserService {
    */
   public requestUsersList(searchParams: SearchEmployeeParams): Observable<any> {
     // const params = this.httpService.generateURLSearchParams(searchParams);
-    // return this.httpService.get(environment.PARKING_DOMAIN + `/admin/users`,
+    // return this.httpService.get(environment.PARKING_DOMAIN + `/users`,
     //     params).pipe(map(res => new UserLinkResponse(res)));
     const userTest = new UserEntity();
     userTest.username = 'wang';
     userTest.realname = '123';
-    userTest.role = '1';
+    userTest.role_type = 3;
     userTest.telephone = '13899991111';
     userTest.password = '33sdf';
-    userTest.show_terminal = '1,2';
-    return of([userTest]);
+    userTest.permission_ids = [1, 2, 3, 5];
+    userTest.created_time = 1615790668;
+    return of([userTest, userTest, userTest, userTest, userTest, userTest, userTest, userTest, userTest, userTest, userTest, userTest]);
   }
 
 
@@ -114,8 +114,24 @@ export class UserService {
     userTest.system_name = '123';
     userTest.telephone_number = '13899991111';
     userTest.stopStatus = 1;
+
     return of([userTest]);
   }
+
+  // public requestSystemUsersList(searchParams: SearchSystemParams): Observable<any> {
+  //
+  //   const params = this.httpService.generateURLSearchParams(searchParams);
+  //   console.log(params);
+  //   // return this.httpService.get(environment.PARKING_DOMAIN + `/admin/users`,
+  //   //   params).pipe(map(res => new UserLinkResponse(res)));
+  //   // const userTest = new SystemUserEntity();
+  //   // userTest.company_name = 'wang';
+  //   // userTest.system_name = '123';
+  //   // userTest.telephone_number = '13899991111';
+  //   // userTest.stopStatus = 1;
+  //   //
+  //   return of('q');
+  // }
 
 
   /**
@@ -128,29 +144,29 @@ export class UserService {
   }
 
   /**
-   * 新建检车线活动
-   * @param string carline_id 检车线ID
-   * @param params ActivityParams 数据源
+   * 新建平台用户
+   * @param params UserEntity 数据源
    * @returns Observable<HttpResponse<any>>
    */
   public requestCreateActivityData(params: UserEntity): Observable<HttpResponse<any>> {
-    return this.httpService.post(environment.PARKING_DOMAIN + `/admin/carlines/activities`, params);
+    return this.httpService.post(environment.PARKING_DOMAIN + `/users`, params.toAddJson());
   }
 
   /**
-   * 编辑检车线活动
-   * @param string carline_id 检车线ID
-   * @param CarLinesEntity carLinesDetailData 数据源
+   * 编辑平台用户
+   * @param string username 用户id
+   * @param UserEntity editParams 数据源
    * @returns Observable<HttpResponse<any>>
    */
-  public requestEditActivityData(carline_id: string, params: UserEntity): Observable<HttpResponse<any>> {
-    return this.httpService.put(environment.PARKING_DOMAIN + `/admin/carlines/${carline_id}/activities/`, params);
+  public requestEditActivityData(editParams: UserEntity, username: string): Observable<HttpResponse<any>> {
+    const body = editParams.toEditJson();
+    return this.httpService.put(environment.PARKING_DOMAIN + '/users/' + username, body);
   }
 
   /**
-   * 新建检车线活动
+   * 新建系统用户
    * @param string carline_id 检车线ID
-   * @param params ActivityParams 数据源
+   * @param params SystemUserEntity 数据源
    * @returns Observable<HttpResponse<any>>
    */
   public requestCreateSystemData(params: SystemUserEntity): Observable<HttpResponse<any>> {
@@ -158,7 +174,7 @@ export class UserService {
   }
 
   /**
-   * 编辑检车线活动
+   * 编辑系统用户
    * @param string carline_id 检车线ID
    * @param CarLinesEntity carLinesDetailData 数据源
    * @returns Observable<HttpResponse<any>>
@@ -182,7 +198,7 @@ export class UserService {
    * @returns {Observable<HttpResponse<any>>}
    */
   public requestResetPassword(username: string): Observable<HttpResponse<any>> {
-    return this.httpService.put(environment.PARKING_DOMAIN + '/users/' + username + '/password/reset');
+    return this.httpService.put(environment.PARKING_DOMAIN + '/users/' + username + '/reset_password');
   }
 
   /**
@@ -192,6 +208,6 @@ export class UserService {
    */
   public requestUseInsurance(ic_id: string, params: any): Observable<HttpResponse<any>> {
     return this.httpService.patch(environment.PARKING_DOMAIN +
-        `/admin/insurance/${ic_id}`, params);
+      `/admin/insurance/${ic_id}`, params);
   }
 }

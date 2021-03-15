@@ -9,7 +9,21 @@ export class RectangleButtonComponent implements OnInit {
 
   @Input() contentData = new RectangleData();
 
-  constructor() { }
+  // private _contentData: Array<any>;
+  // @Input()
+  // public set contentData(contentData: any) {
+  //   this._contentData = contentData;
+  //   // if (contentData) {
+  //   //   console.log('666');
+  //   // }
+  // }
+
+  // public get seriesList(): Array<any> {
+  //   return this._contentData;
+  // }
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
@@ -18,5 +32,6 @@ export class RectangleButtonComponent implements OnInit {
 
 export class RectangleData {
   constructor(public imageUrl?: string,
-              public title?: string){}
+              public title?: string) {
+  }
 }

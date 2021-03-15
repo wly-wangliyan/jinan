@@ -5,10 +5,10 @@ import {ElementService} from '../../../core/element.service';
 import {CreatePlatformUserComponent} from './create-platform-user/create-platform-user.component';
 import {Subject, timer} from 'rxjs';
 import {UserEntity} from '../../../core/auth.service';
-import {debounceTime} from "rxjs/internal/operators";
-import {switchMap} from "rxjs/operators";
-import {PlatformUserEntity, SearchEmployeeParams, UserService} from "../user.service";
-import {Subscription} from "rxjs/index";
+import {debounceTime} from 'rxjs/internal/operators';
+import {switchMap} from 'rxjs/operators';
+import {SearchEmployeeParams, UserService} from '../user.service';
+import {Subscription} from 'rxjs/index';
 
 const PageSize = 10;
 
@@ -22,11 +22,12 @@ export class PlatformUserComponent implements OnInit {
   @ViewChild('createPlatformUser', {static: false}) public createPlatformUser: CreatePlatformUserComponent;
 
   public usersList: Array<UserEntity> = [];
-  private searchText$ = new Subject<any>();
   public noResultText = '数据加载中...';
   public searchParams = new SearchEmployeeParams();
   public pageSize = 10; // 与列表中pageSize保持一致，用于计算序号
   public pageIndex = 1;
+
+  private searchText$ = new Subject<any>();
   private linkUrl: string;
   private continueRequestSubscription: Subscription;
 
@@ -47,9 +48,9 @@ export class PlatformUserComponent implements OnInit {
   ngOnInit() {
     // 员工管理列表
     this.searchText$.pipe(
-        debounceTime(500),
-        switchMap(() =>
-            this.userService.requestUsersList(this.searchParams))
+      debounceTime(500),
+      switchMap(() =>
+        this.userService.requestUsersList(this.searchParams))
     ).subscribe(res => {
       this.usersList = res;
       this.linkUrl = res.linkUrl;
@@ -61,11 +62,10 @@ export class PlatformUserComponent implements OnInit {
   }
 
   public onChangeCompanyTypeSearch(e) {
-    console.log(e);
+    console.log(e.target.value);
   }
 
   public onNZPageIndexChange(pageIndex: number) {
-    console.log('yy');
     this.pageIndex = pageIndex;
     if (pageIndex + 1 >= this.pageCount && this.linkUrl) {
       // 当存在linkUrl并且快到最后一页了请求数据
@@ -118,13 +118,6 @@ export class PlatformUserComponent implements OnInit {
         this.globalService.httpErrorProcess(err);
       });
       // console.log('888');
-    });
-  }
-
-  // 停用用户
-  public onStopUser() {
-    this.promptService.showConfirmBox('请确认是否停用用户XX？', '删除用户', () => {
-      console.log('888');
     });
   }
 }

@@ -13,8 +13,8 @@ export class LoginComponent implements OnInit {
   public loginParams = new LoginParams(); // 登录参数
   public isWrongInput = false;
   public wrongMessage = '*用户名或密码错误，请重新输入！';
-  public userName = '';
-  public password = '';
+  public userName = ''; // 用户名
+  public password = ''; // 密码
 
   constructor(private authService: AuthService,
               private router: Router,
@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // 登录
   public onLoginBtnClick() {
     this.isWrongInput = false;
     if (!this.userName || !this.userName.trim()) {

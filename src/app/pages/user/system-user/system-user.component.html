@@ -13,11 +13,11 @@
     <form class="search-form">
       <div class="form-group">
         <span>系统名称：</span>
-        <input type="text" name="name" class="form-control" placeholder="请输入系统名称" autocomplete="off">
+        <input type="text" name="name" [(ngModel)]="searchParams.username" class="form-control" placeholder="请输入系统名称" autocomplete="off">
       </div>
       <div class="form-group">
         <span>联系电话：</span>
-        <input type="text" name="name" class="form-control" placeholder="请输入联系电话" autocomplete="off">
+        <input type="text" name="name" [(ngModel)]="searchParams.telephone" class="form-control" placeholder="请输入联系电话" autocomplete="off">
       </div>
       <button nz-button nzType="primary" (click)="onSearchBtnClick()">
         <img src="/assets/images/search.png">查询

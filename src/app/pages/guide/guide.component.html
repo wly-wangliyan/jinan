@@ -5,23 +5,30 @@
       <div class="welcome">欢迎您，{{userName}}</div>
       <button class="button-group" (click)="operationStatus = !operationStatus"
               [class]="{'button-active':operationStatus}" #buttonGroup></button>
-      <button class="user-button" routerLink="/user">用户管理</button>
+      <button class="user-button" routerLink="/user" [disabled]="userStatus">用户管理</button>
     </div>
   </div>
   <img src="assets/images/guide/right-bottom.png" style="position: absolute;bottom: 0;right: 0">
   <div class="out-bg">
     <div class="inner-bg">
-        <div class="out-circle" routerLink="/screen/home">
+        <div class="out-circle" routerLink="/screen/home" [ngClass]="{'active-circle':!circleDisableStatus}">
           <div class="in-circle">
-            <img src="/assets/images/guide/circle_center_img.png">
+            <img src="/assets/images/guide/circle_center_img.png" *ngIf="!circleDisableStatus">
+            <img src="/assets/images/guide/screen_disable.png" *ngIf="circleDisableStatus">
             <div class="text">静态交通<br>大数据展示</div>
           </div>
       </div>
     </div>
     <div class="system-list">
-                <app-rectangle-button style="position: absolute" *ngFor="let content of rectangleList" [contentData]="content.data"
-                                      [ngStyle]="content.position"></app-rectangle-button>
+<!--                <app-rectangle-button style="position: absolute" *ngFor="let content of rectangleList" [contentData]="content.data"-->
+<!--                                      [ngStyle]="content.position"></app-rectangle-button>-->
+      <div class="rectangle-content" [ngClass]="{'active-content':content.unDisable}"  *ngFor="let content of rectangleList" [ngStyle]="content.position">
+        <div class="left">
+          <img [src]="content.data.imageUrl">
         </div>
+        <span class="right" >{{content.data.title}}</span>
+      </div>
+    </div>
   </div>
   <div class="user-operation" *ngIf="operationStatus">
     <div (click)="onChangePwd()">

@@ -1,13 +1,13 @@
-import { Pipe, PipeTransform } from '@angular/core';
-import { Observable, from } from 'rxjs';
-
-import { distinct } from 'rxjs/operators';
+import {Pipe, PipeTransform} from '@angular/core';
 
 export const DefaultUserType = ['tmp', 'timely', 'count', 'white', 'black', 'visitor', 'space_sharing', 'reservation', 'other'];
 
 const userTypeObj = {
-  '1': '游客',
-  '2': '数据运维人员',
+  1: '超级管理员',
+  2: '管理员',
+  3: '数据运维人员',
+  4: '普通用户',
+  5: '政府机关人员'
 };
 
 @Pipe({
@@ -15,27 +15,8 @@ const userTypeObj = {
 })
 export class UserTypePipe implements PipeTransform {
 
-  public transform(value: any, args?: any): any {
-    if (value === null || value === undefined) {
-      return '--';
-    }
-    if (value) {
-      // 当直接传递字符串时的处理
-      return userTypeObj[String(value)] ? userTypeObj[String(value)] : '--';
-    } else if (value && value.length > 0) {
-      // 当传递数组类型时的处理
-      let str = '';
-      from(value).pipe(distinct()).subscribe((code: any) => {
-        // 拼接字符串
-        const userType = userTypeObj[code] ? userTypeObj[code] : '';
-        if (userType) {
-          str = str ? str + ',' + userType : userType;
-        }
-      });
-      return str ? str : '--';
-    } else {
-      return '--';
-    }
+  transform(value: any, ...args: any[]): any {
+    return userTypeObj[value];
   }
 }
 
@@ -52,7 +33,7 @@ export class StopTypePipe implements PipeTransform {
   public transform(value: any, args?: any): any {
     if (value === null || value === undefined) {
       return '--';
-    }else{
+    } else {
       return stopTypeObj[String(value)];
     }
   }

@@ -13,27 +13,27 @@
     <form class="search-form">
       <div class="form-group">
         <span>用户名：</span>
-        <input type="text" name="name" class="form-control" placeholder="请输入用户名" autocomplete="off">
+        <input type="text" name="name" [(ngModel)]="searchParams.username" class="form-control" placeholder="请输入用户名" autocomplete="off">
       </div>
       <div class="form-group">
         <span>姓名：</span>
         <input type="text" name="name" class="form-control" placeholder="请输入姓名"
-               autocomplete="off" maxlength="50" autocomplete="off">
+               autocomplete="off" maxlength="50" [(ngModel)]="searchParams.realname">
       </div>
       <div class="form-group">
         <span>手机号：</span>
-        <input type="text" name="name" class="form-control" placeholder="请输入手机号" autocomplete="off">
+        <input type="text" name="name" [(ngModel)]="searchParams.telephone" class="form-control" placeholder="请输入手机号" autocomplete="off">
       </div>
       <div class="form-group">
         <span>角色：</span>
-        <select name="company_type"
+        <select name="company_type" [(ngModel)]="searchParams.role_type"
                 (change)="onChangeCompanyTypeSearch($event)">
-          <option value="0">请选择</option>
+          <option value=''>请选择</option>
           <option value="1">超级管理员</option>
-          <option value="3">管理员</option>
-          <option value="6">数据运维人员</option>
-          <option value="6">普通用户</option>
-          <option value="6">政府机关用户</option>
+          <option value="2">管理员</option>
+          <option value="3">数据运维人员</option>
+          <option value="4">普通用户</option>
+          <option value="5">政府机关用户</option>
         </select>
       </div>
       <button nz-button nzType="primary" (click)="onSearchBtnClick()">
@@ -63,10 +63,10 @@
           <td [title]='data.username'>{{data.username}}</td>
           <td>{{data.realname}}</td>
           <td>{{data.telephone}}</td>
-          <td [title]="data.role|userTypePipe">
-            {{data.role|userTypePipe |zMaxLength}}
+          <td [title]="data.role_type|userTypePipe">
+            {{data.role_type|userTypePipe |zMaxLength}}
           </td>
-          <td>{{data.created_time}}</td>
+          <td>{{(data.created_time * 1000|date:'y-MM-dd HH:mm:ss') || '--'}}</td>
           <td class="operation">
             <a (click)="onShowModal(data)" [title]="'编辑'">编辑</a>
             <a [title]="'密码重置'" (click)="onResetPassword(data)">密码重置</a>

@@ -112,7 +112,7 @@ export class ValidateHelper {
    * @returns boolean
    */
   public static Account(account: string, min: number = 6, max: number = 20): boolean {
-    const regex = new RegExp(`^[a-z0-9_]{${min},${max}}$`);
+    const regex = new RegExp(`^[a-zA-Z0-9_]{${min},${max}}$`);
     return regex.test(account);
   }
 
