@@ -15,7 +15,7 @@ export const initializer: any = {
           }
         };
 
-        $.ajax(`${environment.PARKING_DOMAIN}/admin/user`, header).done((userData, status, xhr) => {
+        $.ajax(`${environment.PARKING_DOMAIN}/user`, header).done((userData, status, xhr) => {
           initializer.user = userData;
           initializer.startTimeStamp = new Date(xhr.getResponseHeader('date')).getTime() / 1000;
           callback(null);

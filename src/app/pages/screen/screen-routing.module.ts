@@ -5,7 +5,7 @@ import {AuthGuardService} from '../../core/auth-guard.service';
 
 const routes: Routes = [{
   path: '', component: ScreenComponent, children: [
-    {path: '', pathMatch: 'full', redirectTo: '/home'},
+    {path: '', pathMatch: 'full', redirectTo: 'home'},
     {
       path: 'home', canActivate: [AuthGuardService], loadChildren: () => import('./home/home.module')
         .then(m => m.HomeModule)
@@ -40,7 +40,7 @@ const routes: Routes = [{
       loadChildren: () => import('./hotspot/hotspot.module')
         .then(m => m.HotspotModule)
     },
-    {path: '**', redirectTo: '/home', pathMatch: 'full'},
+    {path: '**', redirectTo: 'home', pathMatch: 'full'},
   ]
 }];
 

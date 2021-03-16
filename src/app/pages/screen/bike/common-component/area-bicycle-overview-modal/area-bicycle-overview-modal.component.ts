@@ -1,5 +1,5 @@
 import {BikeHttpService} from '../../bike-http.service';
-import {Component, ElementRef, EventEmitter, OnInit, Renderer2, ViewChild, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, OnInit, Output, Renderer2, ViewChild} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {BicycleAreaNumListenerService} from '../../bicycle-area-num-listener.service';
 
@@ -12,8 +12,9 @@ export class AreaBicycleOverviewModalComponent implements OnInit {
 
   public regionLabelName = '';
   public arealist = [];
-  // @Output()
-  // onSendMessage = new EventEmitter();
+
+  @Output()
+  public onSendMessage = new EventEmitter();
 
   @ViewChild('areaBicycleOverviewModal') private areaBicycleOverviewRef: ElementRef;
   @ViewChild('model') private model: ElementRef;
@@ -47,18 +48,18 @@ export class AreaBicycleOverviewModalComponent implements OnInit {
   }
 
   // 点击列表项查看对应区域图层信息
-  // public chooseItem(e, area) {
-  //   const trs: any = document.querySelectorAll('.modal-content-common > tr');
-  //   trs.forEach((item) => {
-  //     item.childNodes.forEach((i) => {
-  //       i.style.color = '#bce4fc';
-  //     });
-  //     item.style.backgroundColor = 'transparent';
-  //   });
-  //   e.target.childNodes.forEach((i) => {
-  //     i.style.color = '#1FB3FF';
-  //   });
-  //   e.target.style.backgroundColor = 'rgba(31,179,255, .1)';
-  //   this.onSendMessage.emit(area);
-  // }
+  public chooseItem(e, area) {
+    const trs: any = document.querySelectorAll('.modal-content-common > tr');
+    trs.forEach((item) => {
+      item.childNodes.forEach((i) => {
+        i.style.color = '#bce4fc';
+      });
+      item.style.backgroundColor = 'transparent';
+    });
+    e.target.childNodes.forEach((i) => {
+      i.style.color = '#1FB3FF';
+    });
+    e.target.style.backgroundColor = 'rgba(31,179,255, .1)';
+    this.onSendMessage.emit(area.region_name);
+  }
 }

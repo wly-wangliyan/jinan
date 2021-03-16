@@ -8,7 +8,7 @@
   <li [class.active]="isShowAlertMap" (click)="onHeadMapCustomLayerBtnClick()">预警图层</li>
 </ul>
 
-<app-area-bicycle-overview-modal></app-area-bicycle-overview-modal>
+<app-area-bicycle-overview-modal (onSendMessage)="onReceiveBikeMessageClick($event)"></app-area-bicycle-overview-modal>
 
 <!--left-->
 <div class="page-container">

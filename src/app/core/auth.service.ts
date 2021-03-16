@@ -81,6 +81,7 @@ export class AuthService {
   // public get isLoggedIn(): boolean {
   //   return this._isLoggedIn;
   // }
+  public permission_ids = [1, 3, 5, 9, 10, 11];
 
   private _user: UserEntity;
   public get user(): UserEntity {

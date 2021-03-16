@@ -1,6 +1,6 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {timer} from 'rxjs';
-import {PlatformUserEntity, UserService} from '../../user.service';
+import {UserService} from '../../user.service';
 import {ValidateHelper} from '../../../../../utils/validate-helper';
 import {ElementService} from '../../../../core/element.service';
 import {UserEntity} from '../../../../core/auth.service';
@@ -62,9 +62,9 @@ export class CreatePlatformUserComponent implements OnInit {
     };
     this.platformUser = data ? data.clone() : new UserEntity();
     this.formatList.forEach(item => {
-        const index = this.platformUser.permission_ids.indexOf(item.key);
-        item.isChecked = index > -1;
-      });
+      const index = this.platformUser.permission_ids.indexOf(item.key);
+      item.isChecked = index > -1;
+    });
     this.sureCallback = sureFunc;
     this.closeCallback = closeFunc;
     this.clear();
@@ -76,8 +76,8 @@ export class CreatePlatformUserComponent implements OnInit {
   private requestActivityData() {
     const successFunc = () => {
       $(this.activityPromptDiv.nativeElement).modal('hide');
-      this.sureCallback();
       this.promptService.showPromptBox('保存成功！');
+      this.sureCallback();
     };
     this.platformUser.permission_ids = this.formatList.filter(item => item.isChecked).map(item => item.key);
     if (this.platformUser.created_time) {
@@ -93,7 +93,7 @@ export class CreatePlatformUserComponent implements OnInit {
                 this.promptService.showPromptBox('密码字段未填写！', 3);
                 return;
               } else {
-                this.promptService.showPromptBox('保存失败,请重试!', 3);
+                this.promptService.showPromptBox('保存失败,请重试!', 2);
               }
             }
           }
@@ -106,7 +106,7 @@ export class CreatePlatformUserComponent implements OnInit {
         successFunc();
       }, err => {
         if (!this.globalService.httpErrorProcess(err)) {
-          this.promptService.showPromptBox('保存失败,请重试!', 3);
+          this.promptService.showPromptBox('保存失败,请重试!', 2);
         }
         this.is_save = false;
       });
@@ -129,9 +129,9 @@ export class CreatePlatformUserComponent implements OnInit {
       return;
     }
     if (!ValidateHelper.Telephone(userParams.telephone)) {
-        this.telError = true;
-        return;
-      }
+      this.telError = true;
+      return;
+    }
     return true;
   }
 
@@ -143,17 +143,21 @@ export class CreatePlatformUserComponent implements OnInit {
     this.is_save = true;
     if (this.generateAndCheckParamsValid(this.platformUser)) {
       this.requestActivityData();
+    }else {
+      this.is_save = false;
     }
   }
 
   // 权限至少选择一项
   public ifDisabled(): boolean {
-      return !this.formatList.some(checkItem => checkItem.isChecked);
+    return !this.formatList.some(checkItem => checkItem.isChecked);
   }
 
   // 切换落地页清空跳转链接
   public clearRole() {
-    this.formatList.forEach((item) => {item.isChecked = false; });
+    this.formatList.forEach((item) => {
+      item.isChecked = false;
+    });
   }
 
   // 清空

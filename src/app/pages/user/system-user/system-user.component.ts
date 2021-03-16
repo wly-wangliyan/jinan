@@ -1,12 +1,11 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {ElementService} from '../../../core/element.service';
-import {CreateSystemUserComponent} from "./create-system-user/create-system-user.component";
-import {debounceTime} from "rxjs/internal/operators";
-import {switchMap} from "rxjs/operators";
-import {Subject, Subscription, timer} from "rxjs";
-import {GlobalService} from "../../../core/global.service";
-import {UserEntity} from "../../../core/auth.service";
-import {SearchEmployeeParams, SearchSystemParams, SystemUserEntity, UserService} from "../user.service";
+import {CreateSystemUserComponent} from './create-system-user/create-system-user.component';
+import {debounceTime} from 'rxjs/internal/operators';
+import {switchMap} from 'rxjs/operators';
+import {Subject, Subscription, timer} from 'rxjs';
+import {GlobalService} from '../../../core/global.service';
+import {SearchSystemParams, SystemUserEntity, UserService} from '../user.service';
 
 const PageSize = 10;
 
@@ -28,6 +27,7 @@ export class SystemUserComponent implements OnInit {
   private linkUrl: string;
   private searchText$ = new Subject<any>();
   private continueRequestSubscription: Subscription;
+
   private get pageCount(): number {
     if (this.usersList.length % PageSize === 0) {
       return this.usersList.length / PageSize;
@@ -42,9 +42,9 @@ export class SystemUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.searchText$.pipe(
-        debounceTime(500),
-        switchMap(() =>
-            this.userService.requestSystemUsersList(this.searchParams))
+      debounceTime(500),
+      switchMap(() =>
+        this.userService.requestSystemUsersList(this.searchParams))
     ).subscribe(res => {
       this.usersList = res;
       this.linkUrl = res.linkUrl;
@@ -102,11 +102,11 @@ export class SystemUserComponent implements OnInit {
   // 停用用户
   public onStopUser(data) {
     const param = {discontinue_use: true};
-    this.promptService.showConfirmBox('请确认是否停用用户XX？', '停用用户', () => {
-      console.log('888');
-    }, '停用');
+    // this.promptService.showConfirmBox('请确认是否停用用户XX？', '停用用户', () => {
+    //   console.log('888');
+    // }, '停用');
     const message = data.stopStatus ? '停用' : '启用';
-    this.promptService.showConfirmBox(`确定要${message}该保险公司吗？`, '提示', () => {
+    this.promptService.showConfirmBox(`请确认是否停用用户${data.company_name}?`, '提示', () => {
       this.userService.requestUseInsurance(data.ic_id, data).subscribe((e) => {
         this.searchText$.next();
       }, err => {

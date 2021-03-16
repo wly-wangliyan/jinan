@@ -2,8 +2,9 @@ import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/
 import {FormBoxComponent} from '../../share/components/form-box/form-box.component';
 import {GlobalService} from '../../core/global.service';
 import {ElementService} from '../../core/element.service';
-import {RectangleData} from "./rectangle-button/rectangle-button.component";
-import {timer} from "rxjs";
+import {RectangleData} from './rectangle-button/rectangle-button.component';
+import {timer} from 'rxjs';
+import {AuthService} from "../../core/auth.service";
 
 @Component({
   selector: 'app-guide',
@@ -18,22 +19,58 @@ export class GuideComponent implements OnInit, AfterViewInit {
   public operationStatus = false; // 是否显示修改密码块
   public userName = 'admin01';
   public rectangleList = []; // 系统数组
-  public permission_ids = [1, 3, 5, 9, 10, 11];
+  // public permission_ids = [1, 3, 5, 9, 10, 11];
   public src = '/assets/images/guide/001.png';
   public circleDisableStatus = true; // 大屏查看权限
   public userStatus = true; // 用户管理权限
 
-  constructor(private globalService: GlobalService, private elementService: ElementService) {
+  constructor(private globalService: GlobalService, private elementService: ElementService, private authService: AuthService) {
     this.rectangleList = [
-      {position: {top: '135px', left: '124px'}, data: new RectangleData('/assets/images/guide/001_disable.png', '路内泊车监管服务系统'), unDisable: false},
-      {position: {top: '247px', left: '72px'}, data: new RectangleData('/assets/images/guide/002_disable.png', '路外停车监管服务系统'), unDisable: false},
-      {position: {top: '359px', left: '47px'}, data: new RectangleData('/assets/images/guide/003_disable.png', '新能源监管服务系统'), unDisable: false},
-      {position: {top: '471px', left: '47px'}, data: new RectangleData('/assets/images/guide/004_disable.png', '共享单车监管服务系统'), unDisable: false},
-      {position: {top: '583px', left: '72px'}, data: new RectangleData('/assets/images/guide/005_disable.png', '热点巡查管理服务系统'), unDisable: false},
-      {position: {top: '695px', left: '124px'}, data: new RectangleData('/assets/images/guide/006_disable.png', '治安联控监管服务系统'), unDisable: false},
-      {position: {top: '292px', left: '1023px'}, data: new RectangleData('/assets/images/guide/007_disable.png', '征信管理服务系统'), unDisable: false},
-      {position: {top: '414px', left: '1037px'}, data: new RectangleData('/assets/images/guide/008_disable.png', '就诊停车预约管理系统'), unDisable: false},
-      {position: {top: '536px', left: '1023px'}, data: new RectangleData('/assets/images/guide/009_disable.png', '资源普查管理系统'), unDisable: false},
+      {
+        position: {top: '135px', left: '124px'},
+        data: new RectangleData('/assets/images/guide/001_disable.png', '路内泊车监管服务系统'),
+        unDisable: false
+      },
+      {
+        position: {top: '247px', left: '72px'},
+        data: new RectangleData('/assets/images/guide/002_disable.png', '路外停车监管服务系统'),
+        unDisable: false
+      },
+      {
+        position: {top: '359px', left: '47px'},
+        data: new RectangleData('/assets/images/guide/003_disable.png', '新能源监管服务系统'),
+        unDisable: false
+      },
+      {
+        position: {top: '471px', left: '47px'},
+        data: new RectangleData('/assets/images/guide/004_disable.png', '共享单车监管服务系统'),
+        unDisable: false
+      },
+      {
+        position: {top: '583px', left: '72px'},
+        data: new RectangleData('/assets/images/guide/005_disable.png', '热点巡查管理服务系统'),
+        unDisable: false
+      },
+      {
+        position: {top: '695px', left: '124px'},
+        data: new RectangleData('/assets/images/guide/006_disable.png', '治安联控监管服务系统'),
+        unDisable: false
+      },
+      {
+        position: {top: '292px', left: '1023px'},
+        data: new RectangleData('/assets/images/guide/007_disable.png', '征信管理服务系统'),
+        unDisable: false
+      },
+      {
+        position: {top: '414px', left: '1037px'},
+        data: new RectangleData('/assets/images/guide/008_disable.png', '就诊停车预约管理系统'),
+        unDisable: false
+      },
+      {
+        position: {top: '536px', left: '1023px'},
+        data: new RectangleData('/assets/images/guide/009_disable.png', '资源普查管理系统'),
+        unDisable: false
+      },
     ];
   }
 
@@ -42,13 +79,13 @@ export class GuideComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     timer(0).subscribe(() => {
-      this.permission_ids.forEach(item => {
-        if (item < 10){
+      this.authService.permission_ids.forEach(item => {
+        if (item < 10) {
           this.rectangleList[item - 1].data.imageUrl = `/assets/images/guide/00${item}.png`;
           this.rectangleList[item - 1].unDisable = true;
-        } else if (item === 10){
+        } else if (item === 10) {
           this.circleDisableStatus = false;
-        } else if (item === 11){
+        } else if (item === 11) {
           this.userStatus = false;
         }
       });

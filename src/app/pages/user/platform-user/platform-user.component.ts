@@ -99,7 +99,7 @@ export class PlatformUserComponent implements OnInit {
 
   // 删除员工
   public onDeleteUser(dataItem: UserEntity) {
-    this.promptService.showConfirmBox('确认删除该员工，此操作不可恢复！', '删除用户', () => {
+    this.promptService.showConfirmBox(`是否确定删除用户-${dataItem.username}?`, '删除用户', () => {
       // this.globalService.confirmationBox.close();
       this.userService.requestDeleteUser(dataItem.username).subscribe(() => {
         this.searchText$.next();

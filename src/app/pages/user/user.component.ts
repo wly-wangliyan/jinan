@@ -1,20 +1,24 @@
-import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {FormBoxComponent} from '../../share/components/form-box/form-box.component';
 import {GlobalService} from '../../core/global.service';
 import {ElementService} from '../../core/element.service';
-import {AuthService} from "../../core/auth.service";
-import {Subject} from "rxjs/index";
+import {AuthService} from '../../core/auth.service';
+import {RouteMonitorService} from '../../core/route-monitor.service';
+import {Http500PageComponent} from '../../share/components/http-500-page/http-500-page.component';
+import {Http403PageComponent} from 'src/app/share/components/http-403-page/http-403-page.component';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.less']
 })
-export class UserComponent implements OnInit {
+export class UserComponent implements OnInit, AfterViewInit {
 
   @ViewChild('buttonGroup') public buttonGroup: ElementRef;
   @ViewChild(FormBoxComponent) public formBox: FormBoxComponent;
   @ViewChild('routerDiv') public routerDiv: ElementRef;
+  @ViewChild(Http403PageComponent, {static: true}) public global403Page: Http403PageComponent;
+  @ViewChild(Http500PageComponent, {static: true}) public global500Page: Http500PageComponent;
   public operationStatus = false; // 是否显示修改密码容器
   public userName = 'admin01';
 
@@ -22,11 +26,22 @@ export class UserComponent implements OnInit {
   constructor(private globalService: GlobalService,
               private elementService: ElementService,
               private renderer2: Renderer2,
-              public authService: AuthService) {
+              public authService: AuthService,
+              private routeService: RouteMonitorService) {
   }
 
   ngOnInit(): void {
 
+  }
+
+  public ngAfterViewInit() {
+    this.globalService.http403Tip = this.global403Page;
+    this.globalService.http500Tip = this.global500Page;
+    this.routeService.routePathChanged.subscribe(() => {
+      // 到路由变更时重置显示状态
+      this.global403Page.http403Flag = false;
+      this.global500Page.http500Flag = false;
+    });
   }
 
   // 点击显示或隐藏修改密码容器

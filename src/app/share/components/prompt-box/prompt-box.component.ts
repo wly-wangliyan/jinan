@@ -8,10 +8,11 @@ import {Subscription, timer} from 'rxjs';
 })
 export class PromptBoxComponent implements OnInit, AfterViewInit {
 
-  @Input() message: string;
-  @Input() imgStatus: number;
+  @Input() message: string; // 提示信息
+  @Input() imgStatus: number; // 提示icon，1成功 2失败 3警告
+  @Input() callback: any; // 确认回调函数
+
   private delaySubscription: Subscription;
-  @Input() callback: any;
 
   @Output()
   closed = new EventEmitter();

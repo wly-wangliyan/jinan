@@ -34,6 +34,8 @@ export class HeatMapLevelComponent implements OnInit, OnDestroy {
   private granularityList: Array<GranularityEntity> = []; // 统计粒度信息
   private markerList: Array<any> = []; // 预警图层marker列表
 
+  public rangePath = [];
+
   private map: any; // 地图图层
   private heatMap: any; // 热力图图层
   public get heatMapH() {
@@ -533,6 +535,7 @@ export class HeatMapLevelComponent implements OnInit, OnDestroy {
         rangePath.push(path);
       }
     });
+    this.rangePath = rangePath;
     if (this.map && this.markerList && this.markerList.length > 0) {
       this.map && this.map.add(this.markerList);
     }
@@ -615,6 +618,20 @@ export class HeatMapLevelComponent implements OnInit, OnDestroy {
     return infoWindow;
   }
 
+  // 点击列表打开信息窗体
+  public listShowInfoWindow(e: string){
+    const regionIndex = this.rangePath.findIndex((item) => {
+      return item.region_name.toString().trim() === e.trim();
+    });
+    if (regionIndex !== -1){
+      const lng = this.rangePath[regionIndex].region_core.split(',')[0];
+      const lat = this.rangePath[regionIndex].region_core.split(',')[1];
+      const centerMarker = new AMap.LngLat(lng, lat);
+      this.map.setCenter(centerMarker);
+      this.onShowRangeInfo(this.rangePath[regionIndex], centerMarker, true);
+    }
+  }
+
   // 在指定位置打开信息窗体
   public onShowRangeInfo(pathItem: ShowPathItem, lnglat: any, isShowRegionInfo: boolean): void {
     // debugger;
@@ -694,7 +711,6 @@ export class HeatMapLevelComponent implements OnInit, OnDestroy {
   // 获取区域内单车数量
   private getRegionBicycleCount(infoUl: any, pathItem: { company_count: object }): void {
     for (const key of Object.keys(pathItem.company_count)) {
-      console.log(this.companyList);
       this.companyList.forEach((companyItem) => {
         const company_type = companyItem.company_type;
         if (companyItem.company_id === key) {

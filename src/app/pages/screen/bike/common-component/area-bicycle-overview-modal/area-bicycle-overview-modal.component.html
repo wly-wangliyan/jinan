@@ -11,7 +11,7 @@
       </tr>
     </div>
     <div class="modal-content-common">
-      <tr *ngFor="let area of arealist">
+      <tr *ngFor="let area of arealist" (click)="chooseItem($event, area)">
         <td>{{area.region_name|zMaxLength:12}} </td>
         <td>{{area.count}}</td>
       </tr>

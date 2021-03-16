@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {AuthService} from './core/auth.service';
 import {HttpService} from './core/http.service';
-import {isNullOrUndefined} from 'util';
 
 @Component({
   selector: 'app-root',

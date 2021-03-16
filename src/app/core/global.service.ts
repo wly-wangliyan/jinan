@@ -86,40 +86,36 @@ export class GlobalService {
    */
   public changePwd(originalPwd, confirmNewPwd) {
     console.log(originalPwd, confirmNewPwd);
-    // this.httpService.put(environment.PARKING_DOMAIN + `/admin/user/password`, {
-    //   old_password: originalPwd,
-    //   new_password: confirmNewPwd
-    // }).subscribe(() => {
-    //   this.elementService.showPromptBox('密码修改成功!');
-    this.formBox.close();
-    //   timer(2000).subscribe(() => {
-    //     this.authService.kickOut();
-    //   });
-    // }, err => {
-    //   if (!this.httpErrorProcess(err)) {
-    //     if (err.status === 422) {
-    //       const error: HttpErrorEntity = HttpErrorEntity.Create(err.error);
-    //       for (const content of error.errors) {
-    //         const field = content.field === 'old_password' ? '原始密码' : content.field === 'password' ? '新密码' : '确认新密码';
-    //         if (content.code === 'missing_field') {
-    //           // this.promptBox.open(`${field}字段缺失！`, null, 'warning');
-    //           this.elementService.showPromptBox(`${field}字段缺失！`, 2);
-    //           return;
-    //         } else if (content.code === 'invalid') {
-    //           if (content.field === 'old_password') {
-    //             // this.promptBox.open('原密码输入错误', null, 'warning');
-    //             this.elementService.showPromptBox('原密码输入错误', 3);
-    //           } else {
-    //             // this.promptBox.open(`${field}输入错误！`, null, 'warning');
-    //             this.elementService.showPromptBox(`${field}输入错误！`, 3);
-    //           }
-    //         } else {
-    //           // this.promptBox.open('密码修改失败，请重试!', null, 'warning');
-    //           this.elementService.showPromptBox('密码修改失败，请重试!', 3);
-    //         }
-    //       }
-    //     }
-    //   }
-    // });
+    this.httpService.put(environment.PARKING_DOMAIN + `/users/change_password`, {
+      old_password: originalPwd,
+      new_password: confirmNewPwd
+    }).subscribe(() => {
+      this.elementService.showPromptBox('密码修改成功!');
+      this.formBox.close();
+      timer(2000).subscribe(() => {
+        this.authService.kickOut();
+      });
+    }, err => {
+      if (!this.httpErrorProcess(err)) {
+        if (err.status === 422) {
+          const error: HttpErrorEntity = HttpErrorEntity.Create(err.error);
+          for (const content of error.errors) {
+            const field = content.field === 'old_password' ? '原始密码' : content.field === 'password' ? '新密码' : '确认新密码';
+            if (content.code === 'missing_field') {
+              this.elementService.showPromptBox(`${field}字段缺失！`, 2);
+              return;
+            } else if (content.code === 'invalid') {
+              if (content.field === 'old_password') {
+                this.elementService.showPromptBox('原密码输入错误', 3);
+              } else {
+                this.elementService.showPromptBox(`${field}输入错误！`, 3);
+              }
+            } else {
+              this.elementService.showPromptBox('密码修改失败，请重试!', 3);
+            }
+          }
+        }
+      }
+    });
   }
 }

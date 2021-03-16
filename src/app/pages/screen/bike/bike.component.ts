@@ -143,14 +143,13 @@ export class BikeComponent implements OnInit {
   }
 
   // 点击左侧列表项对应显示图层区域信息
-  // public onReceiveBikeMessageClick(e) {
-  //   console.log(e);
-  //   // if (!this.isShowAlertMap){
-  //   //   this.isShowAlertMap = true;
-  //   //   this.heatMapLevel.isShowCustomHeatMap = this.isShowAlertMap;
-  //   //   this.heatMapLevel.showCustomMapInfo(this.heatMapLevel.initCustomStatisticsH);
-  //   // }
-  //
-  // }
+  public onReceiveBikeMessageClick(e) {
+    if (!this.isShowAlertMap){
+      this.isShowAlertMap = true;
+      this.heatMapLevel.isShowCustomHeatMap = this.isShowAlertMap;
+      this.heatMapLevel.showCustomMapInfo(this.heatMapLevel.initCustomStatisticsH);
+    }
+    this.heatMapLevel.listShowInfoWindow(e);
+  }
 
 }

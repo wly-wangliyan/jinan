@@ -18,19 +18,20 @@ const routes: Routes = [
     path: '', component: MainComponent, canActivate: [AuthGuardService], children: [
       {path: '', redirectTo: 'guide', pathMatch: 'full'},
       {
-        path: 'guide', canActivate: [AuthGuardService], loadChildren: () => import('./pages/guide/guide.module')
+        path: 'guide', canLoad: [AuthGuardService], loadChildren: () => import('./pages/guide/guide.module')
           .then(m => m.GuideModule)
       },
       {
-        path: 'user', canActivate: [AuthGuardService], loadChildren: () => import('./pages/user/user.module')
+        path: 'user', canLoad: [AuthGuardService], loadChildren: () => import('./pages/user/user.module')
           .then(m => m.UserModule)
       },
       {
-        path: 'screen', canActivate: [AuthGuardService], loadChildren: () => import('./pages/screen/screen.module')
+        path: 'screen', canLoad: [AuthGuardService], loadChildren: () => import('./pages/screen/screen.module')
           .then(m => m.ScreenModule)
       },
     ]
   },
+  {path: '**', redirectTo: 'guide', pathMatch: 'full'},
 ];
 
 @NgModule({
